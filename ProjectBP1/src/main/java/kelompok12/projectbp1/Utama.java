@@ -26,67 +26,99 @@ public class Utama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        konten = new javax.swing.JPanel();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("jMenu3");
+        Konten = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        MenuBarUtama = new javax.swing.JMenuBar();
+        HomeMenu = new javax.swing.JMenu();
+        AboutMenu = new javax.swing.JMenu();
+        LoginMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout kontenLayout = new javax.swing.GroupLayout(konten);
-        konten.setLayout(kontenLayout);
-        kontenLayout.setHorizontalGroup(
-            kontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jLabel1.setText("Selamat datang di Bank simple");
+
+        javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
+        Konten.setLayout(KontenLayout);
+        KontenLayout.setHorizontalGroup(
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KontenLayout.createSequentialGroup()
+                .addContainerGap(123, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(115, 115, 115))
         );
-        kontenLayout.setVerticalGroup(
-            kontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+        KontenLayout.setVerticalGroup(
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KontenLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
-        jMenu4.setText("Login");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        HomeMenu.setText("Home");
+        HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                HomeMenuMouseClicked(evt);
             }
         });
-        jMenuBar2.add(jMenu4);
+        MenuBarUtama.add(HomeMenu);
 
-        setJMenuBar(jMenuBar2);
+        AboutMenu.setText("About");
+        AboutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AboutMenuMouseClicked(evt);
+            }
+        });
+        MenuBarUtama.add(AboutMenu);
+
+        LoginMenu.setText("Login");
+        LoginMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LoginMenuMouseClicked(evt);
+            }
+        });
+        MenuBarUtama.add(LoginMenu);
+
+        setJMenuBar(MenuBarUtama);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+    private void LoginMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMenuMouseClicked
         // TODO add your handling code here:
-        Login login = new Login();  // Login adalah JPanel, bukan JFrame
-        konten.removeAll();         // Hapus semua komponen di dalam panel konten
-        konten.add(login.getContentPane(), java.awt.BorderLayout.CENTER);          // Tambahkan panel Login ke dalam konten
-        konten.revalidate();        // Revalidate layout
-        konten.repaint();  
-    }//GEN-LAST:event_jMenu4MouseClicked
+        Login login = new Login();  
+        Konten.removeAll();         
+        Konten.add(login.getContentPane(), java.awt.BorderLayout.CENTER);         
+        Konten.revalidate();        
+        Konten.repaint();  
+    }//GEN-LAST:event_LoginMenuMouseClicked
+
+    private void AboutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMenuMouseClicked
+        // TODO add your handling code here:
+        About About = new About();  
+        Konten.removeAll();        
+        Konten.add(About.getContentPane(), java.awt.BorderLayout.CENTER);         
+        Konten.revalidate();       
+        Konten.repaint();  
+    }//GEN-LAST:event_AboutMenuMouseClicked
+
+    private void HomeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMenuMouseClicked
+        // Mengembalikan Konten ke default
+        Konten.removeAll();
+        Konten.add(jLabel1);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_HomeMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -124,12 +156,11 @@ public class Utama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JPanel konten;
+    private javax.swing.JMenu AboutMenu;
+    private javax.swing.JMenu HomeMenu;
+    private javax.swing.JPanel Konten;
+    private javax.swing.JMenu LoginMenu;
+    private javax.swing.JMenuBar MenuBarUtama;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
