@@ -29,10 +29,10 @@ jobs:
       run: mvn -version
 
     - name: Install dependencies and run tests
-      run: mvn -B clean verify --file pom.xml
+      run: mvn -B clean verify --file ProjectBP1/pom.xml
 
     - name: Build the project
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file ProjectBP1/pom.xml
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4.4.3
