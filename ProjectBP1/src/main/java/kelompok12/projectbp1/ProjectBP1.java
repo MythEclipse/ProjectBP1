@@ -11,6 +11,7 @@ package kelompok12.projectbp1;
 public class ProjectBP1 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Utama utama = new Utama();
+        utama.setVisible(true);
     }
 }
