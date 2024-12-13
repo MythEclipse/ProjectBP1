@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package kelompok12.crud;
+package kelompok12.database.lib;
 
 /**
  *
@@ -13,10 +13,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Koneksi {
+public class DatabaseUtil {
     public Connection con;
 
-    public Koneksi() {
+    public DatabaseUtil() {
         String id = "asephs";
         String pass = "hunterz";
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -39,6 +39,6 @@ public class Koneksi {
         return DriverManager.getConnection(url, id, pass);
     }
     public static void main(String[] args) {
-        new Koneksi();
+        new DatabaseUtil();
     }
 }
