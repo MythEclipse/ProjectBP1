@@ -29,7 +29,7 @@ public class Login extends javax.swing.JFrame {
 
     private void loginUser() {
         String user = username.getText();
-        String pass = new String(password.getPassword());
+        String pass = password.getText();
         boolean loginSuccess = false;
 
         // Validasi input
@@ -104,7 +104,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();

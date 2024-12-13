@@ -20,7 +20,7 @@ public class DatabaseUtil {
         String id = "asephs";
         String pass = "hunterz";
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://217.15.165.147:3306/db_mhs";
+        String url = "jdbc:mysql://217.15.165.147:3306/db_bank";
 
         try {
             Class.forName(driver);
@@ -35,7 +35,7 @@ public class DatabaseUtil {
 
         String id = "asephs";
         String pass = "hunterz";
-        String url = "jdbc:mysql://217.15.165.147:3306/db_mhs";
+        String url = "jdbc:mysql://217.15.165.147:3306/db_bank";
         return DriverManager.getConnection(url, id, pass);
     }
     public static void main(String[] args) {
