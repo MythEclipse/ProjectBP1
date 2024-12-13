@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         loginSuccess = userRepository.login(user, pass);
 
         if (loginSuccess) {
-            setVisible(false); // Menyembunyikan window login
+//            setVisible(false); // Menyembunyikan window login
             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
             // BP1_M8_DIKA logina = new BP1_M8_DIKA();
             // logina.setVisible(true);
@@ -76,9 +76,9 @@ public class Login extends javax.swing.JFrame {
         loginSuccess = adminRepository.login(user, pass);
 
         if (loginSuccess) {
-            setVisible(false); // Menyembunyikan window login
-            // JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login",
-            // JOptionPane.INFORMATION_MESSAGE);
+//            setVisible(false); // Menyembunyikan window login
+             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login",
+             JOptionPane.INFORMATION_MESSAGE);
             // BP1_M8_DIKA logina = new BP1_M8_DIKA();
             // logina.setVisible(true);
         } else {
