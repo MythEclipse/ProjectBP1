@@ -11,11 +11,13 @@ public class UserRepository {
     private static final String TABLE_NAME = "User";
 
     public boolean create(User user) {
-        String query = "INSERT INTO " + TABLE_NAME + " (username, password) VALUES (?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (username, password, jenisKelamin, alamat) VALUES (?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
+            stmt.setString(3, user.getJenisKelamin());
+            stmt.setString(4, user.getAlamat());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,6 +36,8 @@ public class UserRepository {
                 user.setId(rs.getInt("id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
+                user.setJenisKelamin(rs.getString("jenisKelamin"));
+                user.setAlamat(rs.getString("alamat"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -43,12 +47,14 @@ public class UserRepository {
     }
 
     public boolean update(User user) {
-        String query = "UPDATE " + TABLE_NAME + " SET username = ?, password = ? WHERE id = ?";
+        String query = "UPDATE " + TABLE_NAME + " SET username = ?, password = ?, jenisKelamin = ?, alamat = ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
-            stmt.setInt(3, user.getId());
+            stmt.setString(3, user.getJenisKelamin());
+            stmt.setString(4, user.getAlamat());
+            stmt.setInt(5, user.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
