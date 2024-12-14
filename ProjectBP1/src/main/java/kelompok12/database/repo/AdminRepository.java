@@ -1,30 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package kelompok12.database.repo;
 
-/**
- *
- * @author asephs
- */
-import kelompok12.database.lib.CrudRepository;
 import kelompok12.database.lib.DatabaseUtil;
 import kelompok12.database.model.Admin;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminRepository extends CrudRepository<Admin> {
+public class AdminRepository {
+    private static final String TABLE_NAME = "Admin";
 
-    public AdminRepository() {
-        super("Admin");
+    public boolean create(Admin admin) {
+        String query = "INSERT INTO " + TABLE_NAME + " (username, password) VALUES (?, ?)";
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, admin.getUsername());
+            stmt.setString(2, admin.getPassword());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    @Override
-    public List<Admin> read(String condition) {
+    public List<Admin> readAll() {
         List<Admin> admins = new ArrayList<>();
-        String query = String.format("SELECT * FROM Admin WHERE %s", condition);
+        String query = "SELECT * FROM " + TABLE_NAME;
         try (Connection connection = DatabaseUtil.getConnection();
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -41,18 +42,43 @@ public class AdminRepository extends CrudRepository<Admin> {
         return admins;
     }
 
+    public boolean update(Admin admin) {
+        String query = "UPDATE " + TABLE_NAME + " SET username = ?, password = ? WHERE id = ?";
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, admin.getUsername());
+            stmt.setString(2, admin.getPassword());
+            stmt.setInt(3, admin.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean delete(int id) {
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean login(String username, String password) {
-        String query = "SELECT * FROM Admin WHERE username = ? AND password = ?";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE username = ? AND password = ?";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
-            return rs.next();  // Jika ada hasil, berarti login berhasil
+            return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
 }
-
