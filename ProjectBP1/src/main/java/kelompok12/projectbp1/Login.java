@@ -30,9 +30,7 @@ public class Login extends javax.swing.JFrame {
     private void loginUser() {
         String user = username.getText();
         String pass = password.getText();
-        boolean loginSuccess = false;
-
-        // Validasi input
+    
         if (user.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Username harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
             return;
@@ -41,27 +39,22 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // Memanggil login dari UserRepository
+    
         UserRepository userRepository = new UserRepository();
-        loginSuccess = userRepository.login(user, pass);
-
+        boolean loginSuccess = userRepository.login(user, pass);
+    
         if (loginSuccess) {
-//            setVisible(false); // Menyembunyikan window login
             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
-            // BP1_M8_DIKA logina = new BP1_M8_DIKA();
-            // logina.setVisible(true);
+            // Lanjutkan ke halaman berikutnya jika diperlukan
         } else {
             JOptionPane.showMessageDialog(null, "Login Gagal", "Login", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     private void loginAdmin() {
         String user = username.getText();
         String pass = password.getText();
-        boolean loginSuccess = false;
-
-        // Validasi input
+    
         if (user.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Username harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
             return;
@@ -70,21 +63,18 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // Memanggil login dari AdminRepository
+    
         AdminRepository adminRepository = new AdminRepository();
-        loginSuccess = adminRepository.login(user, pass);
-
+        boolean loginSuccess = adminRepository.login(user, pass);
+    
         if (loginSuccess) {
-//            setVisible(false); // Menyembunyikan window login
-             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login",
-             JOptionPane.INFORMATION_MESSAGE);
-            // BP1_M8_DIKA logina = new BP1_M8_DIKA();
-            // logina.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
+            // Lanjutkan ke halaman berikutnya jika diperlukan
         } else {
             JOptionPane.showMessageDialog(null, "Login Gagal", "Login", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
