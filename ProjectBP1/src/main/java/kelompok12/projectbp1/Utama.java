@@ -4,6 +4,9 @@
  */
 package kelompok12.projectbp1;
 
+import kelompok12.layout.login.Login;
+import kelompok12.layout.login.Register;
+
 /**
  *
  * @author asephs
@@ -32,6 +35,7 @@ public class Utama extends javax.swing.JFrame {
         HomeMenu = new javax.swing.JMenu();
         AboutMenu = new javax.swing.JMenu();
         LoginMenu = new javax.swing.JMenu();
+        RegisterMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +82,14 @@ public class Utama extends javax.swing.JFrame {
         });
         MenuBarUtama.add(LoginMenu);
 
+        RegisterMenu.setText("Register");
+        RegisterMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegisterMenuMouseClicked(evt);
+            }
+        });
+        MenuBarUtama.add(RegisterMenu);
+
         setJMenuBar(MenuBarUtama);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,6 +132,16 @@ public class Utama extends javax.swing.JFrame {
         Konten.repaint();
     }//GEN-LAST:event_HomeMenuMouseClicked
 
+    private void RegisterMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMenuMouseClicked
+        // TODO add your handling code here:
+        Register register = new Register();
+        Konten.removeAll();
+        Konten.add(register.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+        
+    }//GEN-LAST:event_RegisterMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -161,6 +183,7 @@ public class Utama extends javax.swing.JFrame {
     private javax.swing.JPanel Konten;
     private javax.swing.JMenu LoginMenu;
     private javax.swing.JMenuBar MenuBarUtama;
+    private javax.swing.JMenu RegisterMenu;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

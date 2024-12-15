@@ -1,16 +1,16 @@
 package kelompok12.database.model;
 
 public class User {
-    private int id;
-    private String username;
-    private String password;
-    private String jenisKelamin;
-    private String alamat;
+    private String id; // Changed to varchar(36)
+    private String username; // varchar(30)
+    private String password; // varchar(30)
+    private String jenisKelamin; // enum('L', 'P')
+    private String alamat; // varchar(400)
 
     // Constructor, getters, and setters
     public User() {}
 
-    public User(int id, String username, String password, String jenisKelamin, String alamat) {
+    public User(String id, String username, String password, String jenisKelamin, String alamat) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -18,11 +18,11 @@ public class User {
         this.alamat = alamat;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

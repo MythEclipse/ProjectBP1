@@ -11,18 +11,38 @@ public class UserRepository {
     private static final String TABLE_NAME = "User";
 
     public boolean create(User user) {
-        String query = "INSERT INTO " + TABLE_NAME + " (username, password, jenisKelamin, alamat) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jenisKelamin, alamat) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getPassword());
-            stmt.setString(3, user.getJenisKelamin());
-            stmt.setString(4, user.getAlamat());
+            String uniqueId = generateUniqueId(connection);
+            user.setId(uniqueId);
+            stmt.setString(1, uniqueId);
+            stmt.setString(2, user.getUsername());
+            stmt.setString(3, user.getPassword());
+            stmt.setString(4, user.getJenisKelamin());
+            stmt.setString(5, user.getAlamat());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private String generateUniqueId(Connection connection) throws SQLException {
+        String uniqueId;
+        boolean isUnique;
+        do {
+            uniqueId = java.util.UUID.randomUUID().toString();
+            String query = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE id = ?";
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                stmt.setString(1, uniqueId);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    rs.next();
+                    isUnique = rs.getInt(1) == 0;
+                }
+            }
+        } while (!isUnique);
+        return uniqueId;
     }
 
     public List<User> readAll() {
@@ -33,7 +53,7 @@ public class UserRepository {
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("id"));
+                user.setId(rs.getString("id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setJenisKelamin(rs.getString("jenisKelamin"));
@@ -54,7 +74,7 @@ public class UserRepository {
             stmt.setString(2, user.getPassword());
             stmt.setString(3, user.getJenisKelamin());
             stmt.setString(4, user.getAlamat());
-            stmt.setInt(5, user.getId());
+            stmt.setString(5, user.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -62,11 +82,11 @@ public class UserRepository {
         }
     }
 
-    public boolean delete(int id) {
+    public boolean delete(String id) {
         String query = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, id);
+            stmt.setString(1, id);
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
