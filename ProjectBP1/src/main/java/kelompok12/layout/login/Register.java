@@ -7,16 +7,42 @@ package kelompok12.layout.login;
 
 import kelompok12.database.model.User;
 import kelompok12.database.repo.UserRepository;
+import kelompok12.projectbp1.Utama;
 
 /**
  *
  * @author Fujitsu U938
  */
 public class Register extends javax.swing.JFrame {
+    private static Utama utamaInstance;
 
+    /*
+     * Variabel Statis utamaInstance:
+     * 
+     * Ditambahkan variabel statis utamaInstance di kelas Register untuk menyimpan
+     * referensi ke instance Utama yang sudah ada.
+     * Konstruktor Register:
+     * 
+     * Konstruktor Register menerima parameter Utama dan menyimpan referensi ini ke
+     * variabel statis utamaInstance.
+     * Metode registerMouseClicked:
+     * 
+     * Ketika tombol register diklik, metode registerMouseClicked dipanggil.
+     * Metode ini memanggil DaftarUser() untuk melakukan pendaftaran.
+     * Setelah itu, jika utamaInstance tidak null, metode setKontenLogin() dipanggil
+     * pada instance Utama yang sudah ada.
+     * Modifikasi Utama:
+     * 
+     * Di kelas Utama, ketika menu Register diklik, instance Utama yang sudah ada
+     * diteruskan ke konstruktor Register.
+     * Ini memastikan bahwa instance Utama yang sama digunakan di kelas Register.
+     * Dengan cara ini, kita dapat mengubah konten utama yang sudah ada tanpa
+     * membuat instance baru dari Utama.
+     */
     /** Creates new form Register */
-    public Register() {
+    public Register(Utama utama) {
         initComponents();
+        Register.utamaInstance = utama;
     }
 
     private void DaftarUser() {
@@ -26,7 +52,7 @@ public class Register extends javax.swing.JFrame {
         String jenisKelamin = "";
         if (this.laki.isSelected()) {
             jenisKelamin = "L";
-        } else if (this.perm.isSelected())  {
+        } else if (this.perm.isSelected()) {
             jenisKelamin = "P";
         }
 
@@ -68,7 +94,8 @@ public class Register extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -104,70 +131,105 @@ public class Register extends javax.swing.JFrame {
         });
 
         laki.setText("L");
+        laki.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lakiMouseClicked(evt);
+            }
+        });
 
         perm.setText("P");
+        perm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                permMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(laki)
-                                .addGap(18, 18, 18)
-                                .addComponent(perm))
-                            .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(register, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jLabel1)))
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(32, 32, 32)
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(jLabel3,
+                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel2,
+                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel5,
+                                                                javax.swing.GroupLayout.Alignment.LEADING))
+                                                .addGap(25, 25, 25)
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(laki)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(perm))
+                                                        .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 189,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 189,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(register,
+                                                                javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(128, 128, 128)
+                                                .addComponent(jLabel1)))
+                                .addContainerGap(83, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(laki)
-                    .addComponent(perm))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(register)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1)
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(laki)
+                                        .addComponent(perm))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(register)
+                                .addContainerGap(41, Short.MAX_VALUE)));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+        // </editor-fold>//GEN-END:initComponents
+    }
 
-    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
+    private void registerMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_registerMouseClicked
         DaftarUser();
-    }//GEN-LAST:event_registerMouseClicked
+        if (utamaInstance != null) {
+            utamaInstance.setKontenLogin();
+        }
+    }// GEN-LAST:event_registerMouseClicked
+
+    private void lakiMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lakiMouseClicked
+        perm.setSelected(false);
+    }// GEN-LAST:event_lakiMouseClicked
+
+    private void permMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_permMouseClicked
+        laki.setSelected(false);
+    }// GEN-LAST:event_permMouseClicked
 
     /**
      * @param args the command line arguments
@@ -203,7 +265,7 @@ public class Register extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new Register(utamaInstance).setVisible(true);
             }
         });
     }

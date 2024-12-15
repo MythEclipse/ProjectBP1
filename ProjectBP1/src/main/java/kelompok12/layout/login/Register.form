@@ -135,11 +135,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="L"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lakiMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="perm">
       <Properties>
         <Property name="text" type="java.lang.String" value="P"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="permMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -11,7 +11,7 @@ public class UserRepository {
     private static final String TABLE_NAME = "User";
 
     public boolean create(User user) {
-        String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jenisKelamin, alamat) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jk, alamat) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             String uniqueId = generateUniqueId(connection);
