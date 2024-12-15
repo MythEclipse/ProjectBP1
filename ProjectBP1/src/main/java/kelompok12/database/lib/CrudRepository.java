@@ -8,7 +8,6 @@ package kelompok12.database.lib;
  *
  * @author asephs
  */
-import kelompok12.database.lib.DatabaseUtil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
