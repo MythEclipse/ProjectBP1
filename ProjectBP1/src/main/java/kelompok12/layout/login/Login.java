@@ -49,7 +49,7 @@ public class Login extends javax.swing.JFrame {
 
         if (loginSuccess != null) {
             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
-            setVisible(false);
+            utamaInstance.setVisible(false);
             MenuUser menuUser = new MenuUser(loginSuccess);
             menuUser.setVisible(true);
         } else {
