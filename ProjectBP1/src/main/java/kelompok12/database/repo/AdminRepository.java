@@ -1,7 +1,7 @@
 package kelompok12.database.repo;
 
 import kelompok12.database.lib.DatabaseUtil;
-import kelompok12.database.model.Admin;
+import kelompok12.database.model.AdminModel;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public class AdminRepository {
     private static final String TABLE_NAME = "Admin";
 
-    public boolean create(Admin admin) {
+    public boolean create(AdminModel admin) {
         String query = "INSERT INTO " + TABLE_NAME + " (username, password) VALUES (?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -23,14 +23,14 @@ public class AdminRepository {
         }
     }
 
-    public List<Admin> readAll() {
-        List<Admin> admins = new ArrayList<>();
+    public List<AdminModel> readAll() {
+        List<AdminModel> admins = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;
         try (Connection connection = DatabaseUtil.getConnection();
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Admin admin = new Admin();
+                AdminModel admin = new AdminModel();
                 admin.setId(rs.getInt("id"));
                 admin.setUsername(rs.getString("username"));
                 admin.setPassword(rs.getString("password"));
@@ -42,7 +42,7 @@ public class AdminRepository {
         return admins;
     }
 
-    public boolean update(Admin admin) {
+    public boolean update(AdminModel admin) {
         String query = "UPDATE " + TABLE_NAME + " SET username = ?, password = ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {

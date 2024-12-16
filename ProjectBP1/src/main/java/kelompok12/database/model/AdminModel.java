@@ -8,15 +8,15 @@ package kelompok12.database.model;
  *
  * @author asephs
  */
-public class Admin {
+public class AdminModel {
     private int id;
     private String username;
     private String password;
 
     // Constructor, getters, and setters
-    public Admin() {}
+    public AdminModel() {}
 
-    public Admin(int id, String username, String password) {
+    public AdminModel(int id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;

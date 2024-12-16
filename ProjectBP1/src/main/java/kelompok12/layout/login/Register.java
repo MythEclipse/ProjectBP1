@@ -5,7 +5,7 @@
 
 package kelompok12.layout.login;
 
-import kelompok12.database.model.User;
+import kelompok12.database.model.UserModel;
 import kelompok12.database.repo.UserRepository;
 import kelompok12.projectbp1.Utama;
 
@@ -14,7 +14,7 @@ import kelompok12.projectbp1.Utama;
  * @author Fujitsu U938
  */
 public class Register extends javax.swing.JFrame {
-    private static Utama utamaInstance;
+    static Utama utamaInstance;
 
     /*
      * Variabel Statis utamaInstance:
@@ -76,7 +76,7 @@ public class Register extends javax.swing.JFrame {
             return;
         }
 
-        User user = new User(null, nama, password, jenisKelamin, alamat);
+        UserModel user = new UserModel(null, nama, password, jenisKelamin, alamat);
         UserRepository userRepository = new UserRepository();
         boolean isSuccess = userRepository.create(user);
         if (isSuccess) {

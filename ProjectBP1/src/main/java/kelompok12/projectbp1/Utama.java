@@ -106,7 +106,7 @@ public class Utama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_LoginMenuMouseClicked
-        Login login = new Login();
+        Login login = new Login(this);
         Konten.removeAll();
         Konten.add(login.getContentPane(), java.awt.BorderLayout.CENTER);
         Konten.revalidate();
@@ -139,7 +139,7 @@ public class Utama extends javax.swing.JFrame {
     }// GEN-LAST:event_RegisterMenuMouseClicked
 
     public void setKontenLogin() {
-        Login login = new Login();
+        Login login = new Login(this);
         Konten.removeAll();
         Konten.add(login.getContentPane(), java.awt.BorderLayout.CENTER);
         Konten.revalidate();

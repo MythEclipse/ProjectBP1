@@ -1,6 +1,6 @@
 package kelompok12.database.model;
 
-public class User {
+public class UserModel {
     private String id; // Changed to varchar(36)
     private String username; // varchar(30)
     private String password; // varchar(30)
@@ -8,9 +8,9 @@ public class User {
     private String alamat; // varchar(400)
 
     // Constructor, getters, and setters
-    public User() {}
+    public UserModel() {}
 
-    public User(String id, String username, String password, String jenisKelamin, String alamat) {
+    public UserModel(String id, String username, String password, String jenisKelamin, String alamat) {
         this.id = id;
         this.username = username;
         this.password = password;
