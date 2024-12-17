@@ -43,9 +43,9 @@ public class About extends javax.swing.JFrame {
 
         jLabel4.setText("Anggota kelompok :");
 
-        jLabel5.setText("-Asep haryana saputra");
+        jLabel5.setText("-Asep Haryana Saputra");
 
-        jLabel6.setText("-Dika ramdhani");
+        jLabel6.setText("-Dika Ramadani");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

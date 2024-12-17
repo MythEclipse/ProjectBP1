@@ -78,7 +78,7 @@ ProjectBP1/
 
 ## Penulis
 - Asep Haryana Saputra
-- Dika Ramdhani
+- Dika Ramadani
 ## Fitur Tambahan
 - Penyimpanan uang untuk pengguna
 - Penarikan uang oleh pengguna
