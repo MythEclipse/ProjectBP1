@@ -2,6 +2,7 @@ package kelompok12.database.repo;
 
 import kelompok12.database.lib.DatabaseUtil;
 import kelompok12.database.model.AdminModel;
+import kelompok12.database.model.UserModel;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class AdminRepository {
     public boolean create(AdminModel admin) {
         String query = "INSERT INTO " + TABLE_NAME + " (username, password) VALUES (?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
+                PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, admin.getUsername());
             stmt.setString(2, admin.getPassword());
             return stmt.executeUpdate() > 0;
@@ -27,11 +28,10 @@ public class AdminRepository {
         List<AdminModel> admins = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;
         try (Connection connection = DatabaseUtil.getConnection();
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 AdminModel admin = new AdminModel();
-                admin.setId(rs.getInt("id"));
                 admin.setUsername(rs.getString("username"));
                 admin.setPassword(rs.getString("password"));
                 admins.add(admin);
@@ -42,43 +42,23 @@ public class AdminRepository {
         return admins;
     }
 
-    public boolean update(AdminModel admin) {
-        String query = "UPDATE " + TABLE_NAME + " SET username = ?, password = ? WHERE id = ?";
-        try (Connection connection = DatabaseUtil.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, admin.getUsername());
-            stmt.setString(2, admin.getPassword());
-            stmt.setInt(3, admin.getId());
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public boolean delete(int id) {
-        String query = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
-        try (Connection connection = DatabaseUtil.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public boolean login(String username, String password) {
+    public AdminModel login(String username, String password) {
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE username = ? AND password = ?";
         try (Connection connection = DatabaseUtil.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
+                PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if (rs.next()) {
+                return new AdminModel(
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("jk"),
+                        rs.getString("alamat"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+        return null;
     }
 }

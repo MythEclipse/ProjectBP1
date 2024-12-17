@@ -9,25 +9,19 @@ package kelompok12.database.model;
  * @author asephs
  */
 public class AdminModel {
-    private int id;
     private String username;
     private String password;
+    private String Alamat;
+    private String JK;
 
     // Constructor, getters, and setters
     public AdminModel() {}
 
-    public AdminModel(int id, String username, String password) {
-        this.id = id;
+    public AdminModel(String username, String password, String Alamat, String JK) {
         this.username = username;
         this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.Alamat = Alamat;
+        this.JK = JK;
     }
 
     public String getUsername() {
@@ -45,5 +39,22 @@ public class AdminModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getAlamat() {
+        return Alamat;
+    }
+
+    public void setAlamat(String Alamat) {
+        this.Alamat = Alamat;
+    }
+
+    public String getJK() {
+        return JK;
+    }
+
+    public void setJK(String JK) {
+        this.JK = JK;
+    }
+
 }
 

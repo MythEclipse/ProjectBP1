@@ -4,8 +4,8 @@
  */
 package kelompok12.layout.admin;
 
-import kelompok12.layout.user.*;
-import kelompok12.database.model.UserModel;
+
+import kelompok12.database.model.AdminModel;
 
 /**
  *
@@ -13,13 +13,13 @@ import kelompok12.database.model.UserModel;
  */
 public class DataAdmin extends javax.swing.JFrame {
 
-    private static UserModel session;
+    private static AdminModel session;
     
         /**
          * Creates new form User
          * @param loginSuccess 
          */
-        public DataAdmin(UserModel loginSuccess) {
+        public DataAdmin(AdminModel loginSuccess) {
             initComponents();
             DataAdmin.session = loginSuccess;
             session();
