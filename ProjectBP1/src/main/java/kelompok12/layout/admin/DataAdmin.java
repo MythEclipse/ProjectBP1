@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package kelompok12.layout.user;
+package kelompok12.layout.admin;
 
+import kelompok12.layout.user.*;
 import kelompok12.database.model.UserModel;
 
 /**
  *
  * @author Fujitsu U938
  */
-public class User extends javax.swing.JFrame {
+public class DataAdmin extends javax.swing.JFrame {
 
     private static UserModel session;
     
@@ -18,9 +19,9 @@ public class User extends javax.swing.JFrame {
          * Creates new form User
          * @param loginSuccess 
          */
-        public User(UserModel loginSuccess) {
+        public DataAdmin(UserModel loginSuccess) {
             initComponents();
-            User.session = loginSuccess;
+            DataAdmin.session = loginSuccess;
             session();
         }
         public void session(){
@@ -32,7 +33,6 @@ public class User extends javax.swing.JFrame {
             load_data(Id, Username, Password, Alamat, JenisKelamin);
         }
         public void load_data(String norek, String nama, String pass, String alamat, String jk){
-            this.NorekDisplay.setText(norek);
             this.NamaDisplay.setText(nama);
             this.AlamatDisplay.setText(alamat);
             this.JKDisplay.setText(jk);
@@ -47,26 +47,18 @@ public class User extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        NorekDisplay = new javax.swing.JLabel();
         NamaDisplay = new javax.swing.JLabel();
         AlamatDisplay = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         JKDisplay = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        UangDisplay = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel2.setText("Norek");
 
         jLabel3.setText("Nama");
 
         jLabel4.setText("Alamat");
-
-        NorekDisplay.setText("norek");
 
         NamaDisplay.setText("nama");
 
@@ -76,10 +68,6 @@ public class User extends javax.swing.JFrame {
 
         JKDisplay.setText("jk");
 
-        jLabel1.setText("Jumlah Uang");
-
-        UangDisplay.setText("uang");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,44 +75,32 @@ public class User extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UangDisplay)
-                    .addComponent(NorekDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NamaDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JKDisplay)
                     .addComponent(AlamatDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JKDisplay))
+                    .addComponent(NamaDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NorekDisplay)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NamaDisplay)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(NamaDisplay))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(AlamatDisplay))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(JKDisplay))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(UangDisplay))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,20 +134,21 @@ public class User extends javax.swing.JFrame {
                     }
                 }
             } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DataAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DataAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DataAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(DataAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
+            //</editor-fold>
             //</editor-fold>
     
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new User(session).setVisible(true);
+                    new DataAdmin(session).setVisible(true);
             }
         });
     }
@@ -180,10 +157,6 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel AlamatDisplay;
     private javax.swing.JLabel JKDisplay;
     private javax.swing.JLabel NamaDisplay;
-    private javax.swing.JLabel NorekDisplay;
-    private javax.swing.JLabel UangDisplay;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
