@@ -100,6 +100,11 @@ public class MenuUser extends javax.swing.JFrame {
 
         EditUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         EditUserMenu.setText("Edit User");
+        EditUserMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditUserMenuActionPerformed(evt);
+            }
+        });
         EditMenu.add(EditUserMenu);
 
         HapusUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -131,6 +136,10 @@ public class MenuUser extends javax.swing.JFrame {
         Konten.revalidate();
         Konten.repaint();
     }//GEN-LAST:event_TarikMenuActionPerformed
+
+    private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditUserMenuActionPerformed
 
     private void TransferMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TransferMenuActionPerformed
         Transfer transfer = new Transfer(loginSuccess);
