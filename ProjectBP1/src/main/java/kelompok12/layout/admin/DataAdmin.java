@@ -25,17 +25,16 @@ public class DataAdmin extends javax.swing.JFrame {
             session();
         }
         public void session(){
-            String Id = session.getId();
             String Username = session.getUsername();
             String Password = session.getPassword();
             String Alamat = session.getAlamat();
-            String JenisKelamin = session.getJenisKelamin();
-            load_data(Id, Username, Password, Alamat, JenisKelamin);
+            String JenisKelamin = session.getJK();
+            load_data(Username, Password, Alamat, JenisKelamin);
         }
-        public void load_data(String norek, String nama, String pass, String alamat, String jk){
-            this.NamaDisplay.setText(nama);
-            this.AlamatDisplay.setText(alamat);
-            this.JKDisplay.setText(jk);
+        public void load_data(String Username, String Password, String Alamat, String JenisKelamin){
+            this.NamaDisplay.setText(Username);
+            this.AlamatDisplay.setText(Alamat);
+            this.JKDisplay.setText(JenisKelamin);
         }
         /**
          * This method is called from within the constructor to initialize the form.

@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+import kelompok12.database.model.AdminModel;
 import kelompok12.database.model.UserModel;
 import kelompok12.database.repo.AdminRepository;
 import kelompok12.database.repo.UserRepository;
@@ -72,9 +73,9 @@ public class Login extends javax.swing.JFrame {
         }
 
         AdminRepository adminRepository = new AdminRepository();
-        boolean loginSuccess = adminRepository.login(user, pass);
+        AdminModel loginSuccess = adminRepository.login(user, pass);
 
-        if (loginSuccess) {
+        if (loginSuccess != null) {
             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
             utamaInstance.setVisible(false);
             MenuAdmin menuAdmin = new MenuAdmin(loginSuccess);
