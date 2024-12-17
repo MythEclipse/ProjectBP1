@@ -21,9 +21,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tarik"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TarikMenuActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TransferMenu">
               <Properties>
@@ -32,6 +29,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Transfer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TransferMenuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -118,4 +118,37 @@ public class UserRepository {
         }
         return null;
     }
+    public boolean transfer(String fromUserId, String toUserId, long amount) {
+        String withdrawQuery = "UPDATE " + TABLE_NAME + " SET uang = uang - ? WHERE id = ?";
+        String depositQuery = "UPDATE " + TABLE_NAME + " SET uang = uang + ? WHERE id = ?";
+        try (Connection connection = DatabaseUtil.getConnection()) {
+            connection.setAutoCommit(false);
+            try (PreparedStatement withdrawStmt = connection.prepareStatement(withdrawQuery);
+                    PreparedStatement depositStmt = connection.prepareStatement(depositQuery)) {
+                withdrawStmt.setLong(1, amount);
+                withdrawStmt.setString(2, fromUserId);
+                if (withdrawStmt.executeUpdate() == 0) {
+                    connection.rollback();
+                    return false;
+                }
+
+                depositStmt.setLong(1, amount);
+                depositStmt.setString(2, toUserId);
+                if (depositStmt.executeUpdate() == 0) {
+                    connection.rollback();
+                    return false;
+                }
+
+                connection.commit();
+                return true;
+            } catch (SQLException e) {
+                connection.rollback();
+                e.printStackTrace();
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

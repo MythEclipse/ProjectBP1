@@ -12,7 +12,7 @@ import kelompok12.database.model.UserModel;
  */
 public class User extends javax.swing.JFrame {
 
-    private static UserModel LoginSuccess;
+    private static UserModel session;
     
         /**
          * Creates new form User
@@ -20,15 +20,15 @@ public class User extends javax.swing.JFrame {
          */
         public User(UserModel loginSuccess) {
             initComponents();
-            User.LoginSuccess = loginSuccess;
+            User.session = loginSuccess;
             session();
         }
         public void session(){
-            String Id = LoginSuccess.getId();
-            String Username = LoginSuccess.getUsername();
-            String Password = LoginSuccess.getPassword();
-            String Alamat = LoginSuccess.getAlamat();
-            String JenisKelamin = LoginSuccess.getJenisKelamin();
+            String Id = session.getId();
+            String Username = session.getUsername();
+            String Password = session.getPassword();
+            String Alamat = session.getAlamat();
+            String JenisKelamin = session.getJenisKelamin();
             load_data(Id, Username, Password, Alamat, JenisKelamin);
         }
         public void load_data(String norek, String nama, String pass, String alamat, String jk){
@@ -171,7 +171,7 @@ public class User extends javax.swing.JFrame {
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new User(LoginSuccess).setVisible(true);
+                    new User(session).setVisible(true);
             }
         });
     }

@@ -45,16 +45,10 @@
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="transfer" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="hapus" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="norek" alignment="0" pref="164" max="32767" attributes="0"/>
-                          <Component id="pass" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="NoRek" alignment="0" pref="164" max="32767" attributes="0"/>
+                      <Component id="Nominal" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TransferButton" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="89" max="32767" attributes="0"/>
               </Group>
@@ -66,35 +60,30 @@
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="norek" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="NoRek" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="pass" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Nominal" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="transfer" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="hapus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="136" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="TransferButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="150" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="pass">
+        <Component class="javax.swing.JTextField" name="Nominal">
         </Component>
-        <Component class="javax.swing.JButton" name="transfer">
+        <Component class="javax.swing.JButton" name="TransferButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transfer"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="hapus">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Hapus"/>
-          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TransferButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -106,10 +95,7 @@
             <Property name="text" type="java.lang.String" value="Nominal"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="norek">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="norekActionPerformed"/>
-          </Events>
+        <Component class="javax.swing.JTextField" name="NoRek">
         </Component>
       </SubComponents>
     </Container>
