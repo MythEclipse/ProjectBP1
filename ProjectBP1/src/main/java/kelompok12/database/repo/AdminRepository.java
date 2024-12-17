@@ -53,8 +53,8 @@ public class AdminRepository {
                 return new AdminModel(
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getString("jk"),
-                        rs.getString("alamat"));
+                        rs.getString("alamat"),
+                        rs.getString("jk"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
