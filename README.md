@@ -1,7 +1,7 @@
 # ProjectBP1
 
 ## Gambaran Umum
-ProjectBP1 adalah aplikasi perbankan sederhana yang dikembangkan oleh Kelompok 12. Aplikasi ini mencakup fungsionalitas untuk login pengguna dan admin, serta operasi CRUD dasar untuk mengelola pengguna dan admin dalam database MySQL.
+ProjectBP1 adalah sebuah aplikasi manajemen keuangan sederhana yang dirancang untuk membantu pengguna dalam mengelola penyimpanan dan penarikan uang. Aplikasi ini menyediakan antarmuka pengguna grafis (GUI) yang mudah digunakan, memungkinkan pengguna dan admin untuk melakukan operasi CRUD (Create, Read, Update, Delete) dengan mudah. Dengan menggunakan Java Swing untuk GUI dan MySQL sebagai basis data, ProjectBP1 menawarkan solusi yang efisien dan efektif untuk kebutuhan manajemen keuangan.
 
 ## Fitur
 - Login Pengguna dan Admin
@@ -19,15 +19,23 @@ ProjectBP1/
 │   │   │   ├── kelompok12/
 │   │   │   │   ├── database/
 │   │   │   │   │   ├── lib/
+│   │   │   │   │   │   ├── CrudRepository.java
+│   │   │   │   │   │   ├── DatabaseUtil.java
 │   │   │   │   │   ├── model/
 │   │   │   │   │   ├── repo/
+│   │   │   │   ├── layout/
+│   │   │   │   │   ├── login/
+│   │   │   │   │   │   ├── Login.java
+│   │   │   │   │   ├── user/
+│   │   │   │   │   │   ├── Edit.form
+│   │   │   │   │   │   ├── Tarik.form
+│   │   │   │   │   │   ├── User.form
 │   │   │   │   ├── projectbp1/
 │   │   │   │   │   ├── About.java
 │   │   │   │   │   ├── LoadData.java
-│   │   │   │   │   ├── Login.java
 │   │   │   │   │   ├── ProjectBP1.java
 │   │   │   │   │   ├── Utama.java
-│   │   ├── resources/
+│   ├── resources/
 │   ├── test/
 ├── target/
 ├── .gitignore
@@ -71,3 +79,21 @@ ProjectBP1/
 ## Penulis
 - Asep Haryana Saputra
 - Dika Ramdhani
+## Fitur Tambahan
+- Penyimpanan uang untuk pengguna
+- Penarikan uang oleh pengguna
+- Riwayat transaksi pengguna
+
+## Cara Menggunakan Fitur Penyimpanan Uang
+1. Masuk sebagai pengguna.
+2. Pilih menu "Penyimpanan Uang".
+3. Masukkan jumlah uang yang ingin disimpan dan konfirmasi.
+
+## Cara Menggunakan Fitur Penarikan Uang
+1. Masuk sebagai pengguna.
+2. Pilih menu "Penarikan Uang".
+3. Masukkan jumlah uang yang ingin ditarik dan konfirmasi.
+
+## Riwayat Transaksi
+- Pengguna dapat melihat riwayat transaksi mereka melalui menu "Riwayat Transaksi".
+- Riwayat transaksi mencakup semua penyimpanan dan penarikan uang yang dilakukan oleh pengguna.
