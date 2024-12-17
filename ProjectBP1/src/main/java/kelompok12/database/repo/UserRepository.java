@@ -151,4 +151,16 @@ public class UserRepository {
             return false;
         }
     }
+    public boolean tarikUang(String userId, long amount) {
+        String query = "UPDATE " + TABLE_NAME + " SET uang = uang - ? WHERE id = ?";
+        try (Connection connection = DatabaseUtil.getConnection();
+                PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setLong(1, amount);
+            stmt.setString(2, userId);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

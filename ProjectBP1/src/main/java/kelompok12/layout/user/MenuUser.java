@@ -39,6 +39,7 @@ public class MenuUser extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -66,12 +67,22 @@ public class MenuUser extends javax.swing.JFrame {
         );
 
         HomeMenu.setText("Home");
+        HomeMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeMenuActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(HomeMenu);
 
         TransaksiMenu.setText("Transaksi");
 
         TarikMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         TarikMenu.setText("Tarik");
+        TarikMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TarikMenuActionPerformed(evt);
+            }
+        });
         TransaksiMenu.add(TarikMenu);
 
         TransferMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -113,14 +124,25 @@ public class MenuUser extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TransferMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransferMenuActionPerformed
+    private void TarikMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarikMenuActionPerformed
+        Tarik tarik = new Tarik(loginSuccess);
+        Konten.removeAll();
+        Konten.add(tarik.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_TarikMenuActionPerformed
+
+    private void TransferMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TransferMenuActionPerformed
         Transfer transfer = new Transfer(loginSuccess);
         Konten.removeAll();
         Konten.add(transfer.getContentPane(), java.awt.BorderLayout.CENTER);
         Konten.revalidate();
         Konten.repaint();
-    }//GEN-LAST:event_TransferMenuActionPerformed
+    }// GEN-LAST:event_TransferMenuActionPerformed
 
+    private void HomeMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_HomeMenuActionPerformed
+        Home();
+    }// GEN-LAST:event_HomeMenuActionPerformed
 
     /**
      * @param args the command line arguments
