@@ -10,7 +10,7 @@ public class UserRepository {
     private static final String TABLE_NAME = "User";
 
     public boolean create(UserModel user) {
-        String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jk, alamat) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jk, alamat, uang) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
             String uniqueId = generateUniqueId(connection);
@@ -20,6 +20,7 @@ public class UserRepository {
             stmt.setString(3, user.getPassword());
             stmt.setString(4, user.getJenisKelamin());
             stmt.setString(5, user.getAlamat());
+            stmt.setLong(6, user.getUang());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -57,6 +58,7 @@ public class UserRepository {
                 user.setPassword(rs.getString("password"));
                 user.setJenisKelamin(rs.getString("jk"));
                 user.setAlamat(rs.getString("alamat"));
+                user.setUang(rs.getLong("uang"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -67,14 +69,15 @@ public class UserRepository {
 
     public boolean update(UserModel user) {
         String query = "UPDATE " + TABLE_NAME
-                + " SET username = ?, password = ?, jenisKelamin = ?, alamat = ? WHERE id = ?";
+                + " SET username = ?, password = ?, jk = ?, alamat = ?, uang = ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
             stmt.setString(3, user.getJenisKelamin());
             stmt.setString(4, user.getAlamat());
-            stmt.setString(5, user.getId());
+            stmt.setLong(5, user.getUang());
+            stmt.setString(6, user.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,7 +110,8 @@ public class UserRepository {
                         rs.getString("username"),
                         rs.getString("password"),
                         rs.getString("jk"),
-                        rs.getString("alamat"));
+                        rs.getString("alamat"),
+                        rs.getLong("uang"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
