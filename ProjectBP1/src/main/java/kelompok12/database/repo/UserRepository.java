@@ -12,7 +12,8 @@ public class UserRepository {
     private boolean isCacheLoaded = false;
 
     public boolean create(UserModel user) {
-        String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jk, alamat, uang) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + TABLE_NAME
+                + " (id, username, password, jk, alamat, uang) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
             String uniqueId = generateUniqueId(connection);
@@ -71,17 +72,35 @@ public class UserRepository {
         return users;
     }
 
-    public boolean update(UserModel user) {
-        String query = "UPDATE " + TABLE_NAME
-                + " SET username = ?, password = ?, jk = ?, alamat = ?, uang = ? WHERE id = ?";
+    public boolean updateByUsername(UserModel user) {
+        StringBuilder queryBuilder = new StringBuilder("UPDATE " + TABLE_NAME + " SET ");
+        List<Object> parameters = new ArrayList<>();
+
+        if (user.getPassword() != null) {
+            queryBuilder.append("password = ?, ");
+            parameters.add(user.getPassword());
+        }
+        if (user.getJenisKelamin() != null) {
+            queryBuilder.append("jk = ?, ");
+            parameters.add(user.getJenisKelamin());
+        }
+        if (user.getAlamat() != null) {
+            queryBuilder.append("alamat = ?, ");
+            parameters.add(user.getAlamat());
+        }
+
+        // Remove the last comma and space
+        queryBuilder.setLength(queryBuilder.length() - 2);
+        queryBuilder.append(" WHERE username = ?");
+        parameters.add(user.getUsername());
+
+        String query = queryBuilder.toString();
+
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getPassword());
-            stmt.setString(3, user.getJenisKelamin());
-            stmt.setString(4, user.getAlamat());
-            stmt.setLong(5, user.getUang());
-            stmt.setString(6, user.getId());
+            for (int i = 0; i < parameters.size(); i++) {
+                stmt.setObject(i + 1, parameters.get(i));
+            }
             if (stmt.executeUpdate() > 0) {
                 return true;
             }

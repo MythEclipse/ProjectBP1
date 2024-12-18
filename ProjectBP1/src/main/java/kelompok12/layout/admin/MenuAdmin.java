@@ -97,6 +97,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         AdministrasiMenu.add(ListUserMenu);
 
         EditUserMenu.setText("Edit User");
+        EditUserMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditUserMenuActionPerformed(evt);
+            }
+        });
         AdministrasiMenu.add(EditUserMenu);
 
         HapusUserMenu.setText("Hapus User");
@@ -142,8 +147,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         Home();
     }//GEN-LAST:event_HomeMenuActionPerformed
 
+    private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserMenuActionPerformed
+        // TODO add your handling code here:
+        EditUser editUser = new EditUser();
+        Konten.removeAll();
+        Konten.add(editUser.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_EditUserMenuActionPerformed
+
     private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
         // TODO add your handling code here:
+        
     }// GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
 
     private void ListUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListUserMenuActionPerformed

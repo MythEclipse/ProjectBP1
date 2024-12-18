@@ -4,6 +4,8 @@
  */
 package kelompok12.layout.admin;
 
+import kelompok12.database.model.UserModel;
+import kelompok12.database.repo.UserRepository;
 import kelompok12.layout.user.*;
 
 /**
@@ -32,7 +34,7 @@ public class EditUser extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        register = new javax.swing.JButton();
+        EditButton = new javax.swing.JButton();
         nama = new javax.swing.JTextField();
         pass = new javax.swing.JTextField();
         alamat = new javax.swing.JTextField();
@@ -48,7 +50,12 @@ public class EditUser extends javax.swing.JFrame {
 
         jLabel5.setText("Password");
 
-        register.setText("Edit");
+        EditButton.setText("Edit");
+        EditButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditButtonMouseClicked(evt);
+            }
+        });
 
         laki.setText("L");
 
@@ -62,7 +69,7 @@ public class EditUser extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(293, Short.MAX_VALUE)
-                .addComponent(register)
+                .addComponent(EditButton)
                 .addGap(35, 35, 35))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -87,7 +94,7 @@ public class EditUser extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(226, Short.MAX_VALUE)
-                .addComponent(register)
+                .addComponent(EditButton)
                 .addGap(51, 51, 51))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -123,7 +130,28 @@ public class EditUser extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
+    // </editor-fold>//GEN-END:initComponents
+
+    private void EditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditButtonMouseClicked
+        String username = nama.getText().isEmpty() ? null : nama.getText();
+        String password = pass.getText().isEmpty() ? null : pass.getText();
+        String address = alamat.getText().isEmpty() ? null : alamat.getText();
+        String gender = laki.isSelected() ? "L" : perm.isSelected() ? "P" : null;
+
+        UserModel user = new UserModel();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setAlamat(address);
+        user.setJenisKelamin(gender);
+
+        UserRepository userRepository = new UserRepository();
+        if (userRepository.updateByUsername(user)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "User updated successfully!");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Failed to update user.");
+        }
+    }//GEN-LAST:event_EditButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -164,6 +192,7 @@ public class EditUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EditButton;
     private javax.swing.JTextField alamat;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -174,6 +203,5 @@ public class EditUser extends javax.swing.JFrame {
     private javax.swing.JTextField nama;
     private javax.swing.JTextField pass;
     private javax.swing.JRadioButton perm;
-    private javax.swing.JButton register;
     // End of variables declaration//GEN-END:variables
 }
