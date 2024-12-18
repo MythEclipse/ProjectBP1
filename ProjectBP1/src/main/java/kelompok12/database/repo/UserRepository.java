@@ -8,6 +8,8 @@ import java.util.List;
 
 public class UserRepository {
     private static final String TABLE_NAME = "User";
+    private List<UserModel> userCache = new ArrayList<>();
+    private boolean isCacheLoaded = false;
 
     public boolean create(UserModel user) {
         String query = "INSERT INTO " + TABLE_NAME + " (id, username, password, jk, alamat, uang) VALUES (?, ?, ?, ?, ?, ?)";
@@ -21,11 +23,13 @@ public class UserRepository {
             stmt.setString(4, user.getJenisKelamin());
             stmt.setString(5, user.getAlamat());
             stmt.setLong(6, user.getUang());
-            return stmt.executeUpdate() > 0;
+            if (stmt.executeUpdate() > 0) {
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     private String generateUniqueId(Connection connection) throws SQLException {
@@ -78,11 +82,13 @@ public class UserRepository {
             stmt.setString(4, user.getAlamat());
             stmt.setLong(5, user.getUang());
             stmt.setString(6, user.getId());
-            return stmt.executeUpdate() > 0;
+            if (stmt.executeUpdate() > 0) {
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     public boolean delete(String id) {
@@ -90,11 +96,13 @@ public class UserRepository {
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, id);
-            return stmt.executeUpdate() > 0;
+            if (stmt.executeUpdate() > 0) {
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     public UserModel login(String username, String password) {
@@ -103,21 +111,24 @@ public class UserRepository {
                 PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return new UserModel(
-                        rs.getString("id"),
-                        rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getString("jk"),
-                        rs.getString("alamat"),
-                        rs.getLong("uang"));
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    UserModel user = new UserModel();
+                    user.setId(rs.getString("id"));
+                    user.setUsername(rs.getString("username"));
+                    user.setPassword(rs.getString("password"));
+                    user.setJenisKelamin(rs.getString("jk"));
+                    user.setAlamat(rs.getString("alamat"));
+                    user.setUang(rs.getLong("uang"));
+                    return user;
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
     public boolean transfer(String fromUserId, String toUserId, long amount) {
         String withdrawQuery = "UPDATE " + TABLE_NAME + " SET uang = uang - ? WHERE id = ?";
         String depositQuery = "UPDATE " + TABLE_NAME + " SET uang = uang + ? WHERE id = ?";
@@ -151,16 +162,53 @@ public class UserRepository {
             return false;
         }
     }
+
     public boolean tarikUang(String userId, long amount) {
         String query = "UPDATE " + TABLE_NAME + " SET uang = uang - ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setLong(1, amount);
             stmt.setString(2, userId);
-            return stmt.executeUpdate() > 0;
+            if (stmt.executeUpdate() > 0) {
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+        }
+        return false;
+    }
+
+    public List<UserModel> findByUsername(String username) {
+        if (!isCacheLoaded) {
+            loadCache();
+        }
+        List<UserModel> users = new ArrayList<>();
+        for (UserModel user : userCache) {
+            if (user.getUsername().contains(username)) {
+                users.add(user);
+            }
+        }
+        return users;
+    }
+
+    private void loadCache() {
+        String query = "SELECT * FROM " + TABLE_NAME;
+        try (Connection connection = DatabaseUtil.getConnection();
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                UserModel user = new UserModel();
+                user.setId(rs.getString("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setJenisKelamin(rs.getString("jk"));
+                user.setAlamat(rs.getString("alamat"));
+                user.setUang(rs.getLong("uang"));
+                userCache.add(user);
+            }
+            isCacheLoaded = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
