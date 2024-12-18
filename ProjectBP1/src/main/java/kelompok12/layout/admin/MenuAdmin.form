@@ -22,52 +22,52 @@
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="HomeMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Home"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="AdministrasiMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Administrasi"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="ListUserMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="List User"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="EditUserMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit User"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="HapusUserMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hapus User"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
+        <Menu class="javax.swing.JMenu" name="TransaksiMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transaksi"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="RiwayatTransaksiMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Riwayat Transaksi"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RiwayatTransaksiMenuActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="LaporanUserMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Laporan User"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="CetakLaporanMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cetak Laporan"/>
               </Properties>

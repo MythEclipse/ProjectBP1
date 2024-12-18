@@ -46,15 +46,15 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         Konten = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        HomeMenu = new javax.swing.JMenu();
+        AdministrasiMenu = new javax.swing.JMenu();
+        ListUserMenu = new javax.swing.JMenuItem();
+        EditUserMenu = new javax.swing.JMenuItem();
+        HapusUserMenu = new javax.swing.JMenuItem();
+        TransaksiMenu = new javax.swing.JMenu();
+        RiwayatTransaksiMenu = new javax.swing.JMenuItem();
+        LaporanUserMenu = new javax.swing.JMenuItem();
+        CetakLaporanMenu = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -75,39 +75,39 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGap(0, 277, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Home");
-        jMenuBar1.add(jMenu1);
+        HomeMenu.setText("Home");
+        jMenuBar1.add(HomeMenu);
 
-        jMenu2.setText("Administrasi");
+        AdministrasiMenu.setText("Administrasi");
 
-        jMenuItem1.setText("List User");
-        jMenu2.add(jMenuItem1);
+        ListUserMenu.setText("List User");
+        AdministrasiMenu.add(ListUserMenu);
 
-        jMenuItem2.setText("Edit User");
-        jMenu2.add(jMenuItem2);
+        EditUserMenu.setText("Edit User");
+        AdministrasiMenu.add(EditUserMenu);
 
-        jMenuItem3.setText("Hapus User");
-        jMenu2.add(jMenuItem3);
+        HapusUserMenu.setText("Hapus User");
+        AdministrasiMenu.add(HapusUserMenu);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(AdministrasiMenu);
 
-        jMenu5.setText("Transaksi");
+        TransaksiMenu.setText("Transaksi");
 
-        jMenuItem4.setText("Riwayat Transaksi");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        RiwayatTransaksiMenu.setText("Riwayat Transaksi");
+        RiwayatTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                RiwayatTransaksiMenuActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem4);
+        TransaksiMenu.add(RiwayatTransaksiMenu);
 
-        jMenuItem5.setText("Laporan User");
-        jMenu5.add(jMenuItem5);
+        LaporanUserMenu.setText("Laporan User");
+        TransaksiMenu.add(LaporanUserMenu);
 
-        jMenuItem6.setText("Cetak Laporan");
-        jMenu5.add(jMenuItem6);
+        CetakLaporanMenu.setText("Cetak Laporan");
+        TransaksiMenu.add(CetakLaporanMenu);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(TransaksiMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -125,9 +125,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,19 +166,19 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu AdministrasiMenu;
+    private javax.swing.JMenuItem CetakLaporanMenu;
+    private javax.swing.JMenuItem EditUserMenu;
+    private javax.swing.JMenuItem HapusUserMenu;
+    private javax.swing.JMenu HomeMenu;
     private javax.swing.JPanel Konten;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem LaporanUserMenu;
+    private javax.swing.JMenuItem ListUserMenu;
+    private javax.swing.JMenuItem RiwayatTransaksiMenu;
+    private javax.swing.JMenu TransaksiMenu;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
