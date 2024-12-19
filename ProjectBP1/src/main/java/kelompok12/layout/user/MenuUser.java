@@ -67,6 +67,11 @@ public class MenuUser extends javax.swing.JFrame {
         );
 
         HomeMenu.setText("Home");
+        HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMenuMouseClicked(evt);
+            }
+        });
         HomeMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HomeMenuActionPerformed(evt);
@@ -140,6 +145,10 @@ public class MenuUser extends javax.swing.JFrame {
     private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EditUserMenuActionPerformed
+
+    private void HomeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMenuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HomeMenuMouseClicked
 
     private void TransferMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TransferMenuActionPerformed
         Transfer transfer = new Transfer(loginSuccess);

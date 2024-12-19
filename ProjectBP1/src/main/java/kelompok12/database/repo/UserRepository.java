@@ -149,7 +149,7 @@ public class UserRepository {
         return null;
     }
 
-    public boolean transfer(String fromUserId, String toUserId, long amount) {
+    public boolean transfer(String fromUserId, String toUserId, long amount, String Username) {
         String withdrawQuery = "UPDATE " + TABLE_NAME + " SET uang = uang - ? WHERE id = ?";
         String depositQuery = "UPDATE " + TABLE_NAME + " SET uang = uang + ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection()) {
@@ -173,6 +173,7 @@ public class UserRepository {
                 // Record the transaction
                 TransaksiModel transaksi = new TransaksiModel();
                 transaksi.setId(fromUserId);
+                transaksi.setUsername(Username);
                 transaksi.setType("TRANSFER");
                 transaksi.setPenggunaan(amount);
                 transaksi.setSaldoAwal(getUserSaldo(fromUserId));
@@ -195,7 +196,7 @@ public class UserRepository {
     public long getUserSaldo(String userId) throws SQLException {
         String query = "SELECT uang FROM " + TABLE_NAME + " WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
+                PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, userId);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -207,18 +208,19 @@ public class UserRepository {
     }
 
     private void recordTransaction(Connection connection, TransaksiModel transaksi) throws SQLException {
-        String query = "INSERT INTO Transaksi (id, type, penggunaan, saldoAwal, saldoAkhir) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Transaksi (id, username, type, penggunaan, saldoAwal, saldoAkhir) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, transaksi.getId());
-            stmt.setString(2, transaksi.getType());
-            stmt.setLong(3, transaksi.getPenggunaan());
-            stmt.setLong(4, transaksi.getSaldoAwal());
-            stmt.setLong(5, transaksi.getSaldoAkhir());
+            stmt.setString(2, transaksi.getUsername());
+            stmt.setString(3, transaksi.getType());
+            stmt.setLong(4, transaksi.getPenggunaan());
+            stmt.setLong(5, transaksi.getSaldoAwal());
+            stmt.setLong(6, transaksi.getSaldoAkhir());
             stmt.executeUpdate();
         }
     }
 
-    public boolean tarikUang(String userId, long amount) {
+    public boolean tarikUang(String userId, long amount, String Username) {
         String query = "UPDATE " + TABLE_NAME + " SET uang = uang - ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();
                 PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -229,6 +231,7 @@ public class UserRepository {
                 // Record the transaction
                 TransaksiModel transaksi = new TransaksiModel();
                 transaksi.setId(userId);
+                transaksi.setUsername(Username);
                 transaksi.setType("WITHDRAW");
                 transaksi.setPenggunaan(amount);
                 transaksi.setSaldoAwal(getUserSaldo(userId));

@@ -2,6 +2,7 @@ package kelompok12.database.model;
 
 public class TransaksiModel {
     private String id; // varchar(36)
+    private String Username; // varchar(50)
     private String type; // varchar(30)
     private long penggunaan; // bigint
     private long saldoAwal; // bigint
@@ -11,8 +12,9 @@ public class TransaksiModel {
     public TransaksiModel() {
     }
 
-    public TransaksiModel(String id, String type, long penggunaan, long saldoAwal, long saldoAkhir) {
+    public TransaksiModel(String id, String Username, String type, long penggunaan, long saldoAwal, long saldoAkhir) {
         this.id = id;
+        this.Username = Username;
         this.type = type;
         this.penggunaan = penggunaan;
         this.saldoAwal = saldoAwal;
@@ -25,6 +27,14 @@ public class TransaksiModel {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
     public String getType() {

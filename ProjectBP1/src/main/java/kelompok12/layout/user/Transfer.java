@@ -45,8 +45,9 @@ public class Transfer extends javax.swing.JFrame {
     private void TransferFungsi() {
         String toUserId = NoRek.getText();
         long amount = Long.parseLong(Nominal.getText());
+        String Username=session.getUsername();
         UserRepository userRepository = new UserRepository();
-        boolean success = userRepository.transfer(session.getId(), toUserId, amount);
+        boolean success = userRepository.transfer(session.getId(), toUserId, amount,Username);
         if (success) {
             javax.swing.JOptionPane.showMessageDialog(this, "Transfer Berhasil!");
             LoadSaldo();

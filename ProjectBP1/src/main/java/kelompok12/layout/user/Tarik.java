@@ -44,12 +44,13 @@ public class Tarik extends javax.swing.JFrame {
     public void TarikFungsi() {
         long nominal = Long.parseLong(Nominal.getText());
         long saldo = session.getUang();
+        String Username = session.getUsername();
         if (nominal > saldo) {
             JOptionPane.showMessageDialog(this, "Saldo tidak mencukupi");
         } else {
             UserRepository repo = new UserRepository();
             String Id = session.getId();
-            repo.tarikUang(Id, nominal);
+            repo.tarikUang(Id, nominal,Username);
             JOptionPane.showMessageDialog(this, "Berhasil Tarik");
             LoadSaldo();
         }
