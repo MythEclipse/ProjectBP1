@@ -4,6 +4,10 @@
  */
 package kelompok12.layout.user;
 
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
 import kelompok12.database.model.UserModel;
 import kelompok12.database.repo.UserRepository;
 
@@ -27,7 +31,14 @@ public class Transfer extends javax.swing.JFrame {
     }
 
     public void LoadSaldo() {
-        long saldo = session.getUang();
+        UserRepository repo = new UserRepository();
+        String id = session.getId();
+        long saldo = 0;
+        try {
+            saldo = repo.getUserSaldo(id);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error loading saldo: " + e.getMessage());
+        }
         TotalSaldo.setText(String.valueOf(saldo));
     }
 

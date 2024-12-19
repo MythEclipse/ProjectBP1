@@ -27,7 +27,7 @@ public class Utama extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Konten = new javax.swing.JPanel();
@@ -45,17 +45,19 @@ public class Utama extends javax.swing.JFrame {
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KontenLayout.createSequentialGroup()
-                                .addContainerGap(123, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(115, 115, 115)));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KontenLayout.createSequentialGroup()
+                .addContainerGap(123, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(115, 115, 115))
+        );
         KontenLayout.setVerticalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(KontenLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel1)
-                                .addContainerGap(244, Short.MAX_VALUE)));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KontenLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addContainerGap(244, Short.MAX_VALUE))
+        );
 
         HomeMenu.setText("Home");
         HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,13 +96,13 @@ public class Utama extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
