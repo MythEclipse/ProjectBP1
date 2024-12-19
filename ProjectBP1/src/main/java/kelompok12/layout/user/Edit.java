@@ -4,17 +4,38 @@
  */
 package kelompok12.layout.user;
 
+import kelompok12.database.model.UserModel;
+import kelompok12.database.repo.UserRepository;
+
 /**
  *
  * @author Fujitsu U938
  */
 public class Edit extends javax.swing.JFrame {
+    private static UserModel session;
+        /**
+         * Creates new form Edit
+         */
+        public Edit(UserModel loginSuccess) {
+            initComponents();
+            Edit.session = loginSuccess;
+    }
+    public void test () {
+       String id = session.getId();
+       String nama = session.getUsername();
+       String pass = session.getPassword();
+       String jk = session.getJenisKelamin();
+       String alamat = session.getAlamat();
+    }
 
-    /**
-     * Creates new form Edit
-     */
-    public Edit() {
-        initComponents();
+    public void EditFungsi() {
+        String id = session.getId();
+        String nama = this.nama.getText();
+        String pass = this.pass.getText();
+        String jk = laki.isSelected() ? "L" : "P";
+        String alamat = this.alamat.getText();
+        UserRepository repo = new UserRepository();
+        repo.updateById(id, nama, pass, jk, alamat);
     }
 
     /**
@@ -47,6 +68,11 @@ public class Edit extends javax.swing.JFrame {
         jLabel5.setText("Password");
 
         register.setText("Edit");
+        register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerActionPerformed(evt);
+            }
+        });
 
         laki.setText("L");
 
@@ -59,7 +85,7 @@ public class Edit extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(296, Short.MAX_VALUE)
+                .addContainerGap(293, Short.MAX_VALUE)
                 .addComponent(register)
                 .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +110,7 @@ public class Edit extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
+                .addContainerGap(200, Short.MAX_VALUE)
                 .addComponent(register)
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +147,20 @@ public class Edit extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
+    // </editor-fold>//GEN-END:initComponents
 
-    /**
+        private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+            // TODO add your handling code here:
+                try {
+                    EditFungsi();
+                    javax.swing.JOptionPane.showMessageDialog(this, "Data berhasil diupdate");
+                } catch (Exception e) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Terjadi kesalahan: " + e.getMessage());
+                }
+        }//GEN-LAST:event_registerActionPerformed
+
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -153,7 +190,7 @@ public class Edit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Edit().setVisible(true);
+                new Edit(new UserModel()).setVisible(true);
             }
         });
     }

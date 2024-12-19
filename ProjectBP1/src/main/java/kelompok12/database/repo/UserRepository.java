@@ -111,6 +111,48 @@ public class UserRepository {
         return false;
     }
 
+    public boolean updateById(String id, String username, String password, String jenisKelamin, String alamat) {
+        StringBuilder queryBuilder = new StringBuilder("UPDATE " + TABLE_NAME + " SET ");
+        List<Object> parameters = new ArrayList<>();
+
+        if (username != null) {
+            queryBuilder.append("username = ?, ");
+            parameters.add(username);
+        }
+        if (password != null) {
+            queryBuilder.append("password = ?, ");
+            parameters.add(password);
+        }
+        if (jenisKelamin != null) {
+            queryBuilder.append("jk = ?, ");
+            parameters.add(jenisKelamin);
+        }
+        if (alamat != null) {
+            queryBuilder.append("alamat = ?, ");
+            parameters.add(alamat);
+        }
+
+        // Remove the last comma and space
+        queryBuilder.setLength(queryBuilder.length() - 2);
+        queryBuilder.append(" WHERE id = ?");
+        parameters.add(id);
+
+        String query = queryBuilder.toString();
+
+        try (Connection connection = DatabaseUtil.getConnection();
+                PreparedStatement stmt = connection.prepareStatement(query)) {
+            for (int i = 0; i < parameters.size(); i++) {
+                stmt.setObject(i + 1, parameters.get(i));
+            }
+            if (stmt.executeUpdate() > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public boolean delete(String id) {
         String query = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
         try (Connection connection = DatabaseUtil.getConnection();

@@ -39,7 +39,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="296" max="32767" attributes="0"/>
+                  <EmptySpace pref="293" max="32767" attributes="0"/>
                   <Component id="register" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
@@ -71,7 +71,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="225" max="32767" attributes="0"/>
+                  <EmptySpace pref="200" max="32767" attributes="0"/>
                   <Component id="register" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
@@ -124,6 +124,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="nama">
         </Component>
