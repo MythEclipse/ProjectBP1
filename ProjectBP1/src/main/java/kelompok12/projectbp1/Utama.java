@@ -46,17 +46,17 @@ public class Utama extends javax.swing.JFrame {
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KontenLayout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+            .addGroup(KontenLayout.createSequentialGroup()
+                .addGap(283, 283, 283)
                 .addComponent(jLabel1)
-                .addGap(115, 115, 115))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         KontenLayout.setVerticalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
 
         HomeMenu.setText("Home");
@@ -97,11 +97,15 @@ public class Utama extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

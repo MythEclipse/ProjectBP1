@@ -43,9 +43,9 @@ public class About extends javax.swing.JFrame {
 
         jLabel4.setText("Anggota kelompok :");
 
-        jLabel5.setText("-Asep Haryana Saputra");
+        jLabel5.setText("-Asep haryana saputra");
 
-        jLabel6.setText("-Dika Ramadani");
+        jLabel6.setText("-Dika ramdhani");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,7 +68,7 @@ public class About extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(28, 28, 28))
                             .addComponent(jLabel6))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(422, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +85,7 @@ public class About extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
 
         pack();

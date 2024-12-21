@@ -51,7 +51,7 @@
                       <Component id="AlamatDisplay" min="-2" pref="143" max="-2" attributes="0"/>
                       <Component id="NamaDisplay" min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="110" max="32767" attributes="0"/>
+                  <EmptySpace pref="470" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,7 +73,7 @@
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="JKDisplay" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="178" max="32767" attributes="0"/>
+                  <EmptySpace pref="364" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
