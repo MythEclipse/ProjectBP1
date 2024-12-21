@@ -20,20 +20,13 @@ public class Edit extends javax.swing.JFrame {
             initComponents();
             Edit.session = loginSuccess;
     }
-    public void test () {
-       String id = session.getId();
-       String nama = session.getUsername();
-       String pass = session.getPassword();
-       String jk = session.getJenisKelamin();
-       String alamat = session.getAlamat();
-    }
 
     public void EditFungsi() {
         String id = session.getId();
-        String nama = this.nama.getText();
-        String pass = this.pass.getText();
+        String nama = this.nama.getText().isEmpty() ? null : this.nama.getText();
+        String pass = this.pass.getText().isEmpty() ? null : this.pass.getText();
         String jk = laki.isSelected() ? "L" : "P";
-        String alamat = this.alamat.getText();
+        String alamat = this.alamat.getText().isEmpty() ? null : this.alamat.getText();
         UserRepository repo = new UserRepository();
         repo.updateById(id, nama, pass, jk, alamat);
     }

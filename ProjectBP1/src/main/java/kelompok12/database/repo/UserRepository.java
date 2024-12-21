@@ -6,11 +6,28 @@ import kelompok12.database.model.UserModel;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class UserRepository {
     private static final String TABLE_NAME = "User";
     private List<UserModel> userCache = new ArrayList<>();
     private boolean isCacheLoaded = false;
+    private Timer cacheTimer;
+
+    public UserRepository() {
+        startCacheTimer();
+    }
+
+    private void startCacheTimer() {
+        cacheTimer = new Timer(true);
+        cacheTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                loadCache();
+            }
+        }, 0, 50); // 0 delay, 5000ms (5 seconds) period
+    }
 
     public boolean create(UserModel user) {
         String query = "INSERT INTO " + TABLE_NAME
@@ -302,12 +319,23 @@ public class UserRepository {
         }
         return users;
     }
-
+    public UserModel findById(String id) {
+        if (!isCacheLoaded) {
+            loadCache();
+        }
+        for (UserModel user : userCache) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        return null;
+    }
     private void loadCache() {
         String query = "SELECT * FROM " + TABLE_NAME;
         try (Connection connection = DatabaseUtil.getConnection();
                 Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery(query)) {
+            userCache.clear();
             while (rs.next()) {
                 UserModel user = new UserModel();
                 user.setId(rs.getString("id"));
@@ -323,5 +351,4 @@ public class UserRepository {
             e.printStackTrace();
         }
     }
-
 }

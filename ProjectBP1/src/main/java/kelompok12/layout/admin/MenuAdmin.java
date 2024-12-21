@@ -8,6 +8,7 @@ import kelompok12.database.model.AdminModel;
 import kelompok12.layout.user.Tarik;
 import kelompok12.layout.user.User;
 import kelompok12.projectbp1.Admin;
+import kelompok12.projectbp1.Utama;
 
 /**
  *
@@ -41,7 +42,9 @@ public class MenuAdmin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -58,6 +61,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         RiwayatTransaksiMenu = new javax.swing.JMenuItem();
         LaporanUserMenu = new javax.swing.JMenuItem();
         CetakLaporanMenu = new javax.swing.JMenuItem();
+        LogoutMenu = new javax.swing.JMenu();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -70,13 +74,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE));
         KontenLayout.setVerticalGroup(
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
-        );
+                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 277, Short.MAX_VALUE));
 
         HomeMenu.setText("Home");
         HomeMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -127,38 +129,57 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jMenuBar1.add(TransaksiMenu);
 
+        LogoutMenu.setText("Logout");
+        LogoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(LogoutMenu);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HomeMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeMenuActionPerformed
-        Home();
-    }//GEN-LAST:event_HomeMenuActionPerformed
+    private void LogoutMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_LogoutMenuMouseClicked
+        // Terminate the current session
+        session = null;
+        // Navigate to the Utama screen
+        setVisible(false);
+        Utama utama = new Utama();
+        utama.setVisible(true);
+    }// GEN-LAST:event_LogoutMenuMouseClicked
 
-    private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserMenuActionPerformed
-        // TODO add your handling code here:
+    private void HomeMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_HomeMenuActionPerformed
+        Home();
+    }// GEN-LAST:event_HomeMenuActionPerformed
+
+    private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EditUserMenuActionPerformed
         EditUser editUser = new EditUser();
         Konten.removeAll();
         Konten.add(editUser.getContentPane(), java.awt.BorderLayout.CENTER);
         Konten.revalidate();
         Konten.repaint();
-    }//GEN-LAST:event_EditUserMenuActionPerformed
+    }// GEN-LAST:event_EditUserMenuActionPerformed
 
     private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
-        // TODO add your handling code here:
-        
+        RiwayatTransaksi riwayat = new RiwayatTransaksi();
+        Konten.removeAll();
+        Konten.add(riwayat.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
     }// GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
 
     private void ListUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListUserMenuActionPerformed
@@ -218,6 +239,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel Konten;
     private javax.swing.JMenuItem LaporanUserMenu;
     private javax.swing.JMenuItem ListUserMenu;
+    private javax.swing.JMenu LogoutMenu;
     private javax.swing.JMenuItem RiwayatTransaksiMenu;
     private javax.swing.JMenu TransaksiMenu;
     private javax.swing.JMenu jMenu3;

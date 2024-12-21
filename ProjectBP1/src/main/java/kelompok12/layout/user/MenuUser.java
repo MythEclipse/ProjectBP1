@@ -52,7 +52,8 @@ public class MenuUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Konten = new javax.swing.JPanel();
@@ -64,17 +65,20 @@ public class MenuUser extends javax.swing.JFrame {
         EditMenu = new javax.swing.JMenu();
         EditUserMenu = new javax.swing.JMenuItem();
         HapusUserMenu = new javax.swing.JMenuItem();
+        LogoutMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
         KontenLayout.setVerticalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 277, Short.MAX_VALUE));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
 
         HomeMenu.setText("Home");
         HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,8 +95,7 @@ public class MenuUser extends javax.swing.JFrame {
 
         TransaksiMenu.setText("Transaksi");
 
-        TarikMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        TarikMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         TarikMenu.setText("Tarik");
         TarikMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,8 +104,7 @@ public class MenuUser extends javax.swing.JFrame {
         });
         TransaksiMenu.add(TarikMenu);
 
-        TransferMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        TransferMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         TransferMenu.setText("Transfer");
         TransferMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,14 +116,8 @@ public class MenuUser extends javax.swing.JFrame {
         jMenuBar1.add(TransaksiMenu);
 
         EditMenu.setText("Edit User");
-        EditMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EditMenuMouseClicked(evt);
-            }
-        });
 
-        EditUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        EditUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         EditUserMenu.setText("Edit User");
         EditUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,8 +126,7 @@ public class MenuUser extends javax.swing.JFrame {
         });
         EditMenu.add(EditUserMenu);
 
-        HapusUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        HapusUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         HapusUserMenu.setText("Hapus User");
         HapusUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,21 +137,38 @@ public class MenuUser extends javax.swing.JFrame {
 
         jMenuBar1.add(EditMenu);
 
+        LogoutMenu.setText("Logout");
+        LogoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(LogoutMenu);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LogoutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMenuMouseClicked
+        // Terminate the current session
+        loginSuccess = null;
+        // Navigate to the Utama screen
+        setVisible(false);
+        Utama utama = new Utama();
+        utama.setVisible(true);
+    }//GEN-LAST:event_LogoutMenuMouseClicked
 
     private void TarikMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TarikMenuActionPerformed
         Tarik tarik = new Tarik(loginSuccess);
@@ -167,7 +179,6 @@ public class MenuUser extends javax.swing.JFrame {
     }// GEN-LAST:event_TarikMenuActionPerformed
 
     private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EditUserMenuActionPerformed
-        // TODO add your handling code here:
         Edit edit = new Edit(loginSuccess);
         Konten.removeAll();
         Konten.add(edit.getContentPane(), java.awt.BorderLayout.CENTER);
@@ -176,23 +187,17 @@ public class MenuUser extends javax.swing.JFrame {
     }// GEN-LAST:event_EditUserMenuActionPerformed
 
     private void HomeMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_HomeMenuMouseClicked
-        // TODO add your handling code here:
+        Home();
     }// GEN-LAST:event_HomeMenuMouseClicked
 
-    private void EditMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_EditMenuMouseClicked
-        // TODO add your handling code here:
-    }
-
-    // GEN-LAST:event_EditMenuMouseClicked
     private void HapusUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_HapusUserMenuActionPerformed
-        // TODO add your handling code here:
         int response = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this user?",
                 "Confirm", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
         if (response == javax.swing.JOptionPane.YES_OPTION) {
             DeleteFungsi();
 
             JOptionPane.showMessageDialog(this, "User has been deleted");
-            
+
             Utama utama = new Utama();
             setVisible(false);
             utama.setVisible(true);
@@ -256,6 +261,7 @@ public class MenuUser extends javax.swing.JFrame {
     private javax.swing.JMenuItem HapusUserMenu;
     private javax.swing.JMenu HomeMenu;
     private javax.swing.JPanel Konten;
+    private javax.swing.JMenu LogoutMenu;
     private javax.swing.JMenuItem TarikMenu;
     private javax.swing.JMenu TransaksiMenu;
     private javax.swing.JMenuItem TransferMenu;

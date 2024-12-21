@@ -28,14 +28,17 @@ public class User extends javax.swing.JFrame {
         initComponents();
         User.session = loginSuccess;
         session();
+        LoadSaldo();
     }
 
     public void session() {
         String Id = session.getId();
-        String Username = session.getUsername();
-        String Password = session.getPassword();
-        String Alamat = session.getAlamat();
-        String JenisKelamin = session.getJenisKelamin();
+        UserRepository repo = new UserRepository();
+        UserModel user = repo.findById(Id);
+        String Username = user.getUsername();
+        String Password = user.getPassword();
+        String Alamat = user.getAlamat();
+        String JenisKelamin = user.getJenisKelamin();
         load_data(Id, Username, Password, Alamat, JenisKelamin);
     }
 
