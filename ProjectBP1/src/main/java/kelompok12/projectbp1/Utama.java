@@ -40,6 +40,8 @@ public class Utama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Konten.setBackground(new java.awt.Color(227, 242, 253));
+
         jLabel1.setText("Selamat datang di Bank simple");
 
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
@@ -47,17 +49,19 @@ public class Utama extends javax.swing.JFrame {
         KontenLayout.setHorizontalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(283, 283, 283)
+                .addGap(315, 315, 315)
                 .addComponent(jLabel1)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         KontenLayout.setVerticalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(220, 220, 220)
                 .addComponent(jLabel1)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
+
+        MenuBarUtama.setBackground(new java.awt.Color(227, 242, 253));
 
         HomeMenu.setText("Home");
         HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,15 +101,11 @@ public class Utama extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

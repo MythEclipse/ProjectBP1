@@ -69,16 +69,21 @@ public class MenuUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Konten.setBackground(new java.awt.Color(227, 242, 253));
+        Konten.setPreferredSize(new java.awt.Dimension(500, 800));
+
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         KontenLayout.setVerticalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 477, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(227, 242, 253));
 
         HomeMenu.setText("Home");
         HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,6 +101,7 @@ public class MenuUser extends javax.swing.JFrame {
         TransaksiMenu.setText("Transaksi");
 
         TarikMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        TarikMenu.setBackground(new java.awt.Color(227, 242, 253));
         TarikMenu.setText("Tarik");
         TarikMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +111,7 @@ public class MenuUser extends javax.swing.JFrame {
         TransaksiMenu.add(TarikMenu);
 
         TransferMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        TransferMenu.setBackground(new java.awt.Color(227, 242, 253));
         TransferMenu.setText("Transfer");
         TransferMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +125,7 @@ public class MenuUser extends javax.swing.JFrame {
         EditMenu.setText("Edit User");
 
         EditUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        EditUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         EditUserMenu.setText("Edit User");
         EditUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +135,7 @@ public class MenuUser extends javax.swing.JFrame {
         EditMenu.add(EditUserMenu);
 
         HapusUserMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        HapusUserMenu.setBackground(new java.awt.Color(255, 0, 102));
         HapusUserMenu.setText("Hapus User");
         HapusUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,11 +160,11 @@ public class MenuUser extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
         );
 
         pack();
