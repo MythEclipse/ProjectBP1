@@ -40,24 +40,28 @@ public class Utama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Konten.setBackground(new java.awt.Color(227, 242, 253));
+
         jLabel1.setText("Selamat datang di Bank simple");
 
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KontenLayout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+            .addGroup(KontenLayout.createSequentialGroup()
+                .addGap(315, 315, 315)
                 .addComponent(jLabel1)
-                .addGap(115, 115, 115))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         KontenLayout.setVerticalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(220, 220, 220)
                 .addComponent(jLabel1)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
+
+        MenuBarUtama.setBackground(new java.awt.Color(227, 242, 253));
 
         HomeMenu.setText("Home");
         HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {

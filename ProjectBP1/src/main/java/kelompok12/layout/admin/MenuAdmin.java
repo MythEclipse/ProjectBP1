@@ -47,7 +47,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -74,16 +74,23 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Konten.setBackground(new java.awt.Color(227, 242, 253));
+
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
         KontenLayout.setVerticalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 479, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(227, 242, 253));
 
         HomeMenu.setText("Home");
         HomeMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +102,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         AdministrasiMenu.setText("Administrasi");
 
+        ListUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         ListUserMenu.setText("List User");
         ListUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +111,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         AdministrasiMenu.add(ListUserMenu);
 
+        EditUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         EditUserMenu.setText("Edit User");
         EditUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +120,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         AdministrasiMenu.add(EditUserMenu);
 
+        HapusUserMenu.setBackground(new java.awt.Color(204, 0, 102));
         HapusUserMenu.setText("Hapus User");
         AdministrasiMenu.add(HapusUserMenu);
 
@@ -118,6 +128,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         TransaksiMenu.setText("Transaksi");
 
+        RiwayatTransaksiMenu.setBackground(new java.awt.Color(227, 242, 253));
         RiwayatTransaksiMenu.setText("Riwayat Transaksi");
         RiwayatTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +137,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         TransaksiMenu.add(RiwayatTransaksiMenu);
 
+        LaporanUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         LaporanUserMenu.setText("Laporan User");
         LaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +146,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         TransaksiMenu.add(LaporanUserMenu);
 
+        CetakLaporanMenu.setBackground(new java.awt.Color(227, 242, 253));
         CetakLaporanMenu.setText("Cetak Laporan");
         TransaksiMenu.add(CetakLaporanMenu);
 
@@ -155,7 +168,13 @@ public class MenuAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
