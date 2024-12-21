@@ -4,6 +4,9 @@
  */
 package kelompok12.layout.admin;
 
+import java.util.List;
+import java.util.Map;
+
 import kelompok12.database.model.AdminModel;
 import kelompok12.layout.user.Tarik;
 import kelompok12.layout.user.User;
@@ -44,7 +47,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -74,11 +77,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
         KontenLayout.setVerticalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 277, Short.MAX_VALUE));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
 
         HomeMenu.setText("Home");
         HomeMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +127,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         TransaksiMenu.add(RiwayatTransaksiMenu);
 
         LaporanUserMenu.setText("Laporan User");
+        LaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanUserMenuActionPerformed(evt);
+            }
+        });
         TransaksiMenu.add(LaporanUserMenu);
 
         CetakLaporanMenu.setText("Cetak Laporan");
@@ -142,16 +152,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
+    // </editor-fold>//GEN-END:initComponents
+
+    private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanUserMenuActionPerformed
+        Laporan laporan = new Laporan();
+        List<Map<String, ?>> data1 = laporan.fetchData1();
+        List<Map<String, ?>> data2 = laporan.fetchData2();
+        laporan.generateReport(data1, data2);
+    }//GEN-LAST:event_LaporanUserMenuActionPerformed
 
     private void LogoutMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_LogoutMenuMouseClicked
         // Terminate the current session

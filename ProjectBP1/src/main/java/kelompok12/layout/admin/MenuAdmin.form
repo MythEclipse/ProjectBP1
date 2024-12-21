@@ -75,6 +75,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Laporan User"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LaporanUserMenuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="CetakLaporanMenu">
               <Properties>
