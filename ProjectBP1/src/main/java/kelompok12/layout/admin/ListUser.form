@@ -123,7 +123,7 @@
         <Component class="javax.swing.JButton" name="SearchButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/kelompok12/layout/icon/Gakuseisean-Ivista-2-Start-Menu-Search.16.png"/>
+              <Image iconType="1" name="https://asepharyana.cloud/api/uploader/ff21ngp.png"/>
             </Property>
           </Properties>
           <Events>

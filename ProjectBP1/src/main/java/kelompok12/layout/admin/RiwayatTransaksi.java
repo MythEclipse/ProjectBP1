@@ -80,7 +80,17 @@ public class RiwayatTransaksi extends javax.swing.JFrame {
 
         jLabel1.setText("Cari :");
 
-        SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kelompok12/layout/icon/Gakuseisean-Ivista-2-Start-Menu-Search.16.png"))); // NOI18N
+        SearchButton.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://asepharyana.cloud/api/uploader/ff21ngp.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
         SearchButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SearchButtonMouseClicked(evt);
