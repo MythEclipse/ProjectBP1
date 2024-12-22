@@ -50,7 +50,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated <editor-fold
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -84,11 +84,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 802, Short.MAX_VALUE));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 802, Short.MAX_VALUE)
+        );
         KontenLayout.setVerticalGroup(
-                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 479, Short.MAX_VALUE));
+            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 479, Short.MAX_VALUE)
+        );
 
         jMenuBar1.setBackground(new java.awt.Color(227, 242, 253));
 
@@ -146,9 +148,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         RiwayatTransaksiMenu.setBackground(new java.awt.Color(227, 242, 253));
         RiwayatTransaksiMenu.setText("Riwayat Transaksi");
-        RiwayatTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RiwayatTransaksiMenuActionPerformed(evt);
+        RiwayatTransaksiMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RiwayatTransaksiMenuMouseClicked(evt);
             }
         });
         TransaksiMenu.add(RiwayatTransaksiMenu);
@@ -186,16 +188,25 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RiwayatTransaksiMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RiwayatTransaksiMenuMouseClicked
+  
+        RiwayatTransaksi riwayat = new RiwayatTransaksi();
+        Konten.removeAll();
+        Konten.add(riwayat.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_RiwayatTransaksiMenuMouseClicked
 
     private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LaporanUserMenuActionPerformed
 
@@ -246,11 +257,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }// GEN-LAST:event_EditUserMenuActionPerformed
 
     private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
-        RiwayatTransaksi riwayat = new RiwayatTransaksi();
-        Konten.removeAll();
-        Konten.add(riwayat.getContentPane(), java.awt.BorderLayout.CENTER);
-        Konten.revalidate();
-        Konten.repaint();
+        
     }// GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
 
     private void ListUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListUserMenuActionPerformed
