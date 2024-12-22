@@ -148,9 +148,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         RiwayatTransaksiMenu.setBackground(new java.awt.Color(227, 242, 253));
         RiwayatTransaksiMenu.setText("Riwayat Transaksi");
-        RiwayatTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RiwayatTransaksiMenuActionPerformed(evt);
+        RiwayatTransaksiMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RiwayatTransaksiMenuMouseClicked(evt);
             }
         });
         TransaksiMenu.add(RiwayatTransaksiMenu);
@@ -199,14 +199,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
+    private void RiwayatTransaksiMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RiwayatTransaksiMenuMouseClicked
         // TODO add your handling code here:
         RiwayatTransaksi riwayat = new RiwayatTransaksi();
         Konten.removeAll();
         Konten.add(riwayat.getContentPane(), java.awt.BorderLayout.CENTER);
         Konten.revalidate();
         Konten.repaint();
-    }//GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
+    }//GEN-LAST:event_RiwayatTransaksiMenuMouseClicked
 
     private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LaporanUserMenuActionPerformed
 
@@ -257,7 +257,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     }// GEN-LAST:event_EditUserMenuActionPerformed
 
     private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
-        
+        RiwayatTransaksi riwayat = new RiwayatTransaksi();
+        Konten.removeAll();
+        Konten.add(riwayat.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
     }// GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
 
     private void ListUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListUserMenuActionPerformed
