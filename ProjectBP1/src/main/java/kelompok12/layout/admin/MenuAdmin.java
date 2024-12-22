@@ -47,7 +47,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated <editor-fold
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -58,12 +61,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         HomeMenu = new javax.swing.JMenu();
         AdministrasiMenu = new javax.swing.JMenu();
         ListUserMenu = new javax.swing.JMenuItem();
+        LaporanUserMenu = new javax.swing.JMenuItem();
+        CetakLaporanUserMenu = new javax.swing.JMenuItem();
         EditUserMenu = new javax.swing.JMenuItem();
         HapusUserMenu = new javax.swing.JMenuItem();
         TransaksiMenu = new javax.swing.JMenu();
         RiwayatTransaksiMenu = new javax.swing.JMenuItem();
-        LaporanUserMenu = new javax.swing.JMenuItem();
-        CetakLaporanMenu = new javax.swing.JMenuItem();
+        LaporanTransaksiMenu = new javax.swing.JMenuItem();
+        CetakLaporanTransaksiMenu = new javax.swing.JMenuItem();
         LogoutMenu = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -79,16 +84,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
+                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 802, Short.MAX_VALUE));
         KontenLayout.setVerticalGroup(
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
-        );
+                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 479, Short.MAX_VALUE));
 
         jMenuBar1.setBackground(new java.awt.Color(227, 242, 253));
 
@@ -110,6 +110,22 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
         AdministrasiMenu.add(ListUserMenu);
+
+        LaporanUserMenu.setText("Laporan User");
+        LaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanUserMenuActionPerformed(evt);
+            }
+        });
+        AdministrasiMenu.add(LaporanUserMenu);
+
+        CetakLaporanUserMenu.setText("Cetak Laporan User");
+        CetakLaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CetakLaporanUserMenuActionPerformed(evt);
+            }
+        });
+        AdministrasiMenu.add(CetakLaporanUserMenu);
 
         EditUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         EditUserMenu.setText("Edit User");
@@ -137,18 +153,23 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         TransaksiMenu.add(RiwayatTransaksiMenu);
 
-        LaporanUserMenu.setBackground(new java.awt.Color(227, 242, 253));
-        LaporanUserMenu.setText("Laporan User");
-        LaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
+        LaporanTransaksiMenu.setBackground(new java.awt.Color(227, 242, 253));
+        LaporanTransaksiMenu.setText("Laporan Transaksi");
+        LaporanTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LaporanUserMenuActionPerformed(evt);
+                LaporanTransaksiMenuActionPerformed(evt);
             }
         });
-        TransaksiMenu.add(LaporanUserMenu);
+        TransaksiMenu.add(LaporanTransaksiMenu);
 
-        CetakLaporanMenu.setBackground(new java.awt.Color(227, 242, 253));
-        CetakLaporanMenu.setText("Cetak Laporan");
-        TransaksiMenu.add(CetakLaporanMenu);
+        CetakLaporanTransaksiMenu.setBackground(new java.awt.Color(227, 242, 253));
+        CetakLaporanTransaksiMenu.setText("Cetak Laporan Transaksi");
+        CetakLaporanTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CetakLaporanTransaksiMenuActionPerformed(evt);
+            }
+        });
+        TransaksiMenu.add(CetakLaporanTransaksiMenu);
 
         jMenuBar1.add(TransaksiMenu);
 
@@ -165,30 +186,43 @@ public class MenuAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
-    }
-    // </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanUserMenuActionPerformed
-        Laporan laporan = new Laporan();
-        List<Map<String, ?>> data1 = laporan.fetchData1();
-        List<Map<String, ?>> data2 = laporan.fetchData2();
-        laporan.generateReport(data1, data2);
-    }//GEN-LAST:event_LaporanUserMenuActionPerformed
+    private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LaporanUserMenuActionPerformed
+
+        LaporanUser laporanUser = new LaporanUser();
+        List<Map<String, ?>> dataUser = laporanUser.fetchData();
+        laporanUser.generateReport(dataUser);
+    }// GEN-LAST:event_LaporanUserMenuActionPerformed
+
+    private void LaporanTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LaporanTransaksiMenuActionPerformed
+        LaporanTransaksi laporanTransaksi = new LaporanTransaksi();
+        List<Map<String, ?>> dataTransaksi = laporanTransaksi.fetchData();
+        laporanTransaksi.generateReport(dataTransaksi);
+    }// GEN-LAST:event_LaporanTransaksiMenuActionPerformed
+
+    private void CetakLaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CetakLaporanUserMenuActionPerformed
+        CetakLaporanUser reportGenerator = new CetakLaporanUser();
+        List<Map<String, ?>> data = reportGenerator.fetchData();
+        String outputFilePath = "CetakLaporanUser.pdf";
+        reportGenerator.generateReport(data, outputFilePath);
+    }// GEN-LAST:event_CetakLaporanUserMenuActionPerformed
+
+    private void CetakLaporanTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CetakLaporanTransaksiMenuActionPerformed
+        CetakLaporanTransaksi reportGenerator = new CetakLaporanTransaksi();
+        List<Map<String, ?>> data = reportGenerator.fetchData();
+        String outputFilePath = "CetakLaporanTransaksi.pdf";
+        reportGenerator.generateReport(data, outputFilePath);
+    }// GEN-LAST:event_CetakLaporanTransaksiMenuActionPerformed
 
     private void LogoutMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_LogoutMenuMouseClicked
         // Terminate the current session
@@ -269,11 +303,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu AdministrasiMenu;
-    private javax.swing.JMenuItem CetakLaporanMenu;
+    private javax.swing.JMenuItem CetakLaporanTransaksiMenu;
+    private javax.swing.JMenuItem CetakLaporanUserMenu;
     private javax.swing.JMenuItem EditUserMenu;
     private javax.swing.JMenuItem HapusUserMenu;
     private javax.swing.JMenu HomeMenu;
     private javax.swing.JPanel Konten;
+    private javax.swing.JMenuItem LaporanTransaksiMenu;
     private javax.swing.JMenuItem LaporanUserMenu;
     private javax.swing.JMenuItem ListUserMenu;
     private javax.swing.JMenu LogoutMenu;

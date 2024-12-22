@@ -76,7 +76,7 @@ public class Register extends javax.swing.JFrame {
             return;
         }
 
-        UserModel user = new UserModel(null, nama, password, jenisKelamin, alamat, 0);
+        UserModel user = new UserModel(null, nama, password, jenisKelamin, alamat, 50000);
         UserRepository userRepository = new UserRepository();
         boolean isSuccess = userRepository.create(user);
         if (isSuccess) {

@@ -1,44 +1,49 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package kelompok12.database.lib;
 
-/**
- *
- * @author asephs
- */
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 public class DatabaseUtil {
-    public Connection con;
 
-    public DatabaseUtil() {
-        String id = "asephs";
-        String pass = "hunterz";
-        String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://217.15.165.147:3306/db_bank";
+    private static HikariDataSource dataSource;
 
+    static {
         try {
-            Class.forName(driver);
-            con = DriverManager.getConnection(url, id, pass);
-            JOptionPane.showMessageDialog(null, "Koneksi Berhasil");
-        } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Koneksi Gagal: " + e.getMessage());
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl("jdbc:mysql://217.15.165.147:3306/db_bank");
+            config.setUsername("asephs");
+            config.setPassword("hunterz");
+            config.setDriverClassName("com.mysql.cj.jdbc.Driver");
+
+            // Optional: Tuning pool settings
+            config.setMaximumPoolSize(10);
+            config.setMinimumIdle(2);
+            config.setIdleTimeout(30000);
+            config.setMaxLifetime(1800000);
+
+            dataSource = new HikariDataSource(config);
+
+            System.out.println("Koneksi Berhasil");
+        } catch (Exception e) {
+            System.err.println("Koneksi Gagal: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
     public static Connection getConnection() throws SQLException {
-
-        String id = "asephs";
-        String pass = "hunterz";
-        String url = "jdbc:mysql://217.15.165.147:3306/db_bank";
-        return DriverManager.getConnection(url, id, pass);
+        return dataSource.getConnection();
     }
+
     public static void main(String[] args) {
-        new DatabaseUtil();
+        try (Connection connection = DatabaseUtil.getConnection()) {
+            if (connection != null) {
+                System.out.println("Koneksi berhasil digunakan.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
