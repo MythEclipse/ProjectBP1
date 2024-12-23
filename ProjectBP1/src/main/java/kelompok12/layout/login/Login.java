@@ -107,7 +107,6 @@ public class Login extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
         LoginButton = new javax.swing.JButton();
-        RegisterButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         LevelComboBox = new javax.swing.JComboBox<>();
 
@@ -128,8 +127,6 @@ public class Login extends javax.swing.JFrame {
                 LoginButtonMouseClicked(evt);
             }
         });
-
-        RegisterButton.setText("REGISTER");
 
         jLabel5.setText("Level");
 
@@ -156,10 +153,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(101, 101, 101)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(RegisterButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(LoginButton)))
+                    .addComponent(LoginButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(261, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,9 +174,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(LevelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LoginButton)
-                    .addComponent(RegisterButton))
+                .addComponent(LoginButton)
                 .addContainerGap(179, Short.MAX_VALUE))
         );
 
@@ -512,7 +504,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> LevelComboBox;
     private javax.swing.JButton LoginButton;
-    private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

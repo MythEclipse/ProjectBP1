@@ -53,6 +53,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="LaporanUserMenu">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="fd" green="f2" red="e3" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Laporan User"/>
               </Properties>
               <Events>
@@ -61,6 +64,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="CetakLaporanUserMenu">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="fd" green="f2" red="e3" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cetak Laporan User"/>
               </Properties>
               <Events>

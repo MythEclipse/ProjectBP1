@@ -64,11 +64,7 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="88" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="LoginButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="LoginButton" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="261" max="32767" attributes="0"/>
               </Group>
@@ -95,10 +91,7 @@
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LoginButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="RegisterButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="LoginButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="179" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -134,11 +127,6 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LoginButtonMouseClicked"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="RegisterButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="REGISTER"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

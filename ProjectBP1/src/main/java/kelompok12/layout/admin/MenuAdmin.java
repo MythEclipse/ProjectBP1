@@ -113,6 +113,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         AdministrasiMenu.add(ListUserMenu);
 
+        LaporanUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         LaporanUserMenu.setText("Laporan User");
         LaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +122,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         AdministrasiMenu.add(LaporanUserMenu);
 
+        CetakLaporanUserMenu.setBackground(new java.awt.Color(227, 242, 253));
         CetakLaporanUserMenu.setText("Cetak Laporan User");
         CetakLaporanUserMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
