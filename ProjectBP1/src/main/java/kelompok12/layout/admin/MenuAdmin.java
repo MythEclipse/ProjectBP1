@@ -142,6 +142,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         HapusUserMenu.setBackground(new java.awt.Color(204, 0, 102));
         HapusUserMenu.setText("Hapus User");
+        HapusUserMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusUserMenuActionPerformed(evt);
+            }
+        });
         AdministrasiMenu.add(HapusUserMenu);
 
         jMenuBar1.add(AdministrasiMenu);
@@ -209,6 +214,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         Konten.revalidate();
         Konten.repaint();
     }//GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
+
+    private void HapusUserMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusUserMenuActionPerformed
+        HapusUser hu = new HapusUser();
+        Konten.removeAll();
+        Konten.add(hu.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_HapusUserMenuActionPerformed
 
     private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LaporanUserMenuActionPerformed
 

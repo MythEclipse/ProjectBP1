@@ -75,13 +75,13 @@ public class User extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        NorekDisplay = new javax.swing.JLabel();
-        NamaDisplay = new javax.swing.JLabel();
-        AlamatDisplay = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        JKDisplay = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        UangDisplay = new javax.swing.JLabel();
+        NorekDisplay = new javax.swing.JTextField();
+        NamaDisplay = new javax.swing.JTextField();
+        AlamatDisplay = new javax.swing.JTextField();
+        JKDisplay = new javax.swing.JTextField();
+        UangDisplay = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,65 +93,65 @@ public class User extends javax.swing.JFrame {
 
         jLabel4.setText("Alamat");
 
-        NorekDisplay.setText("norek");
-
-        NamaDisplay.setText("nama");
-
-        AlamatDisplay.setText("alamat");
-
         jLabel5.setText("Jenis Kelamin");
-
-        JKDisplay.setText("jk");
 
         jLabel1.setText("Jumlah Uang");
 
-        UangDisplay.setText("uang");
+        NorekDisplay.setEditable(false);
+
+        NamaDisplay.setEditable(false);
+
+        AlamatDisplay.setEditable(false);
+
+        JKDisplay.setEditable(false);
+
+        UangDisplay.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(278, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(156, 156, 156)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel1))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UangDisplay)
-                    .addComponent(NorekDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NamaDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AlamatDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JKDisplay))
-                .addGap(238, 238, 238))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(NorekDisplay)
+                    .addComponent(NamaDisplay)
+                    .addComponent(AlamatDisplay)
+                    .addComponent(JKDisplay)
+                    .addComponent(UangDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(132, 132, 132)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NorekDisplay)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(NorekDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NamaDisplay)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(NamaDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(AlamatDisplay))
+                    .addComponent(AlamatDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(JKDisplay))
+                    .addComponent(JKDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(UangDisplay))
-                .addContainerGap(213, Short.MAX_VALUE))
+                    .addComponent(UangDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,11 +208,11 @@ public class User extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AlamatDisplay;
-    private javax.swing.JLabel JKDisplay;
-    private javax.swing.JLabel NamaDisplay;
-    private javax.swing.JLabel NorekDisplay;
-    private javax.swing.JLabel UangDisplay;
+    private javax.swing.JTextField AlamatDisplay;
+    private javax.swing.JTextField JKDisplay;
+    private javax.swing.JTextField NamaDisplay;
+    private javax.swing.JTextField NorekDisplay;
+    private javax.swing.JTextField UangDisplay;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

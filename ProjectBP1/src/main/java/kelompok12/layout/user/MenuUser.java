@@ -62,6 +62,7 @@ public class MenuUser extends javax.swing.JFrame {
         TransaksiMenu = new javax.swing.JMenu();
         TarikMenu = new javax.swing.JMenuItem();
         TransferMenu = new javax.swing.JMenuItem();
+        RiwayatTransaksiMenu = new javax.swing.JMenuItem();
         EditMenu = new javax.swing.JMenu();
         EditUserMenu = new javax.swing.JMenuItem();
         HapusUserMenu = new javax.swing.JMenuItem();
@@ -119,6 +120,15 @@ public class MenuUser extends javax.swing.JFrame {
             }
         });
         TransaksiMenu.add(TransferMenu);
+
+        RiwayatTransaksiMenu.setBackground(new java.awt.Color(227, 242, 253));
+        RiwayatTransaksiMenu.setText("Riwayat Transaksi");
+        RiwayatTransaksiMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RiwayatTransaksiMenuActionPerformed(evt);
+            }
+        });
+        TransaksiMenu.add(RiwayatTransaksiMenu);
 
         jMenuBar1.add(TransaksiMenu);
 
@@ -178,6 +188,14 @@ public class MenuUser extends javax.swing.JFrame {
         Utama utama = new Utama();
         utama.setVisible(true);
     }//GEN-LAST:event_LogoutMenuMouseClicked
+
+    private void RiwayatTransaksiMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatTransaksiMenuActionPerformed
+        RiwayatTransaksiUser rt = new RiwayatTransaksiUser(loginSuccess);
+        Konten.removeAll();
+        Konten.add(rt.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_RiwayatTransaksiMenuActionPerformed
 
     private void TarikMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TarikMenuActionPerformed
         Tarik tarik = new Tarik(loginSuccess);
@@ -271,6 +289,7 @@ public class MenuUser extends javax.swing.JFrame {
     private javax.swing.JMenu HomeMenu;
     private javax.swing.JPanel Konten;
     private javax.swing.JMenu LogoutMenu;
+    private javax.swing.JMenuItem RiwayatTransaksiMenu;
     private javax.swing.JMenuItem TarikMenu;
     private javax.swing.JMenu TransaksiMenu;
     private javax.swing.JMenuItem TransferMenu;
