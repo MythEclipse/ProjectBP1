@@ -7,46 +7,86 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build_jdk_21:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: maven
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
+      - name: Verify Maven version
+        run: mvn -version
 
-    - name: Set up JDK 8
-      uses: actions/setup-java@v4
-      with:
-        java-version: '8'
-        distribution: 'temurin'
-        cache: maven
+      - name: Clean and Install dependencies
+        run: mvn clean install -DskipTests --file ProjectBP1/pom.xml
 
-    - name: Verify Maven version
-      run: mvn -version
+      - name: Build the project with JDK 21
+        run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
 
-    - name: Clean and Install dependencies
-      run: mvn clean install -DskipTests --file ProjectBP1/pom.xml
+      - name: Upload artifact for JDK 21
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: java-build-artifact-jdk21
+          path: ProjectBP1/target/*.jar
 
-    - name: Build the project (Only for one version)
-      run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
+  build_jdk_17:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4.4.3
-      with:
-        name: java-build-artifact
-        path: ProjectBP1/target/*.jar
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Verify Maven version
+        run: mvn -version
+
+      - name: Clean and Install dependencies
+        run: mvn clean install -DskipTests --file ProjectBP1/pom.xml
+
+      - name: Build the project with JDK 17
+        run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
+
+      - name: Upload artifact for JDK 17
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: java-build-artifact-jdk17
+          path: ProjectBP1/target/*.jar
+
+  build_jdk_8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Verify Maven version
+        run: mvn -version
+
+      - name: Clean and Install dependencies
+        run: mvn clean install -DskipTests --file ProjectBP1/pom.xml
+
+      - name: Build the project with JDK 8
+        run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
+
+      - name: Upload artifact for JDK 8
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: java-build-artifact-jdk8
+          path: ProjectBP1/target/*.jar
