@@ -29,11 +29,14 @@ jobs:
       - name: Build the project with JDK 21
         run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
 
+      - name: Rename artifact for JDK 21
+        run: mv ProjectBP1/target/*.jar ProjectBP1/target/project-build-jdk21.jar
+
       - name: Upload artifact for JDK 21
         uses: actions/upload-artifact@v4.4.3
         with:
           name: java-build-artifact-jdk21
-          path: ProjectBP1/target/*.jar
+          path: ProjectBP1/target/project-build-jdk21.jar
 
   build_jdk_17:
     runs-on: ubuntu-latest
@@ -57,11 +60,14 @@ jobs:
       - name: Build the project with JDK 17
         run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
 
+      - name: Rename artifact for JDK 17
+        run: mv ProjectBP1/target/*.jar ProjectBP1/target/project-build-jdk17.jar
+
       - name: Upload artifact for JDK 17
         uses: actions/upload-artifact@v4.4.3
         with:
           name: java-build-artifact-jdk17
-          path: ProjectBP1/target/*.jar
+          path: ProjectBP1/target/project-build-jdk17.jar
 
   build_jdk_8:
     runs-on: ubuntu-latest
@@ -85,8 +91,11 @@ jobs:
       - name: Build the project with JDK 8
         run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
 
+      - name: Rename artifact for JDK 8
+        run: mv ProjectBP1/target/*.jar ProjectBP1/target/project-build-jdk8.jar
+
       - name: Upload artifact for JDK 8
         uses: actions/upload-artifact@v4.4.3
         with:
           name: java-build-artifact-jdk8
-          path: ProjectBP1/target/*.jar
+          path: ProjectBP1/target/project-build-jdk8.jar
