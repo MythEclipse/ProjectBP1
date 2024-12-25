@@ -11,28 +11,36 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        java-version: [8, 17, 21]  # Specify the Java versions you want to build for
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up JDK 21
+    - name: Set up OpenJDK
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
-        distribution: 'temurin'
+        java-version: ${{ matrix.java-version }}  # Dynamically use the version from matrix
+        distribution: 'openjdk'  # Use OpenJDK distribution
         cache: maven
 
     - name: Verify Maven version
       run: mvn -version
 
+    - name: Clean the project to avoid any existing SNAPSHOT versions
+      run: mvn clean
+
     - name: Install dependencies and run tests
-      run: mvn -B clean verify --file ProjectBP1/pom.xml
+      run: mvn -B verify --file ProjectBP1/pom.xml
 
     - name: Build the project
-      run: mvn -B package --file ProjectBP1/pom.xml
+      run: mvn -B package -DskipTests --file ProjectBP1/pom.xml  # Skip tests in packaging phase to speed up
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4.4.3
       with:
         name: java-build-artifact
         path: ProjectBP1/target/*.jar
+        if-no-files-found: error  # Fail if no files are found (prevents accidental uploads of empty directories)
