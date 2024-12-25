@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>6.2.1</version> <!-- This version is compatible with JDK 8 and above -->
+            <version>3.4.5</version> <!-- This version is compatible with JDK 8 and above -->
         </dependency>
         <!-- JasperReports PDF Dependency (Compatible with JDK 8 and above) -->
         <dependency>
@@ -50,6 +50,10 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <compilerArgs>
+                        <arg>-Xlint</arg>
+                        <arg>-Xlint</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
 
