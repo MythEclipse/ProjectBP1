@@ -98,6 +98,12 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <artifactSet>
+                                <includes>
+                                    <!-- Menyertakan semua dependensi -->
+                                    <include>*:*</include>
+                                </includes>
+                            </artifactSet>
                             <archive>
                                 <manifest>
                                     <mainClass>${main.class}</mainClass>
