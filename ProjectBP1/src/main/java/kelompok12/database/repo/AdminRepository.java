@@ -2,7 +2,6 @@ package kelompok12.database.repo;
 
 import kelompok12.database.lib.DatabaseUtil;
 import kelompok12.database.model.AdminModel;
-import kelompok12.database.model.UserModel;
 
 import java.sql.*;
 import java.util.ArrayList;
