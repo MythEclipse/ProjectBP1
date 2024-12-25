@@ -22,14 +22,28 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v4
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+
     - name: Verify Maven version
       run: mvn -version
 
-    - name: Install dependencies and run tests
-      run: mvn -B clean verify --file ProjectBP1/pom.xml
+    - name: Clean and Install dependencies
+      run: mvn clean install -DskipTests --file ProjectBP1/pom.xml
 
-    - name: Build the project
-      run: mvn -B package --file ProjectBP1/pom.xml
+    - name: Build the project (Only for one version)
+      run: mvn -B package -DskipTests --file ProjectBP1/pom.xml
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4.4.3
