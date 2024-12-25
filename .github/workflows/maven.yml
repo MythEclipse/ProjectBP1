@@ -32,10 +32,10 @@ jobs:
       - name: List .jar files in target directory (for debugging)
         run: ls -l ProjectBP1/target/*.jar
 
-      - name: Rename artifact for JDK 21
+      - name: Rename first .jar file for JDK 21
         run: |
-          # Check if there is exactly one .jar file in the target directory
-          jar_file=$(ls ProjectBP1/target/*.jar)
+          # Find the first .jar file in the target directory and rename it
+          jar_file=$(find ProjectBP1/target/ -name "*.jar" | head -n 1)
           echo "Found JAR file: $jar_file"
           mv "$jar_file" ProjectBP1/target/project-build-jdk21.jar
 
@@ -70,10 +70,10 @@ jobs:
       - name: List .jar files in target directory (for debugging)
         run: ls -l ProjectBP1/target/*.jar
 
-      - name: Rename artifact for JDK 17
+      - name: Rename first .jar file for JDK 17
         run: |
-          # Check if there is exactly one .jar file in the target directory
-          jar_file=$(ls ProjectBP1/target/*.jar)
+          # Find the first .jar file in the target directory and rename it
+          jar_file=$(find ProjectBP1/target/ -name "*.jar" | head -n 1)
           echo "Found JAR file: $jar_file"
           mv "$jar_file" ProjectBP1/target/project-build-jdk17.jar
 
@@ -108,10 +108,10 @@ jobs:
       - name: List .jar files in target directory (for debugging)
         run: ls -l ProjectBP1/target/*.jar
 
-      - name: Rename artifact for JDK 8
+      - name: Rename first .jar file for JDK 8
         run: |
-          # Check if there is exactly one .jar file in the target directory
-          jar_file=$(ls ProjectBP1/target/*.jar)
+          # Find the first .jar file in the target directory and rename it
+          jar_file=$(find ProjectBP1/target/ -name "*.jar" | head -n 1)
           echo "Found JAR file: $jar_file"
           mv "$jar_file" ProjectBP1/target/project-build-jdk8.jar
 
