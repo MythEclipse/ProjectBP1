@@ -32,6 +32,9 @@ public class Utama extends javax.swing.JFrame {
 
         Konten = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         MenuBarUtama = new javax.swing.JMenuBar();
         HomeMenu = new javax.swing.JMenu();
         AboutMenu = new javax.swing.JMenu();
@@ -44,21 +47,44 @@ public class Utama extends javax.swing.JFrame {
 
         jLabel1.setText("Selamat datang di Bank simple");
 
+        jLabel2.setText("Selamat datang di Bank Simple, langkah awal menuju masa depan finansial yang lebih baik!");
+
+        jLabel3.setText(" Kami menyediakan layanan perbankan cerdas yang dirancang untuk memenuhi kebutuhan Anda dengan cepat dan efisien.");
+
+        jLabel4.setText(" Bank Simple bukan hanya bank, tetapi mitra Anda dalam mencapai tujuan keuangan.");
+
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(315, 315, 315)
-                .addComponent(jLabel1)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addGroup(KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(KontenLayout.createSequentialGroup()
+                        .addGap(318, 318, 318)
+                        .addComponent(jLabel1))
+                    .addGroup(KontenLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jLabel2))
+                    .addGroup(KontenLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jLabel3))
+                    .addGroup(KontenLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabel4)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         KontenLayout.setVerticalGroup(
             KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(220, 220, 220)
+                .addGap(196, 196, 196)
                 .addComponent(jLabel1)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         MenuBarUtama.setBackground(new java.awt.Color(227, 242, 253));
@@ -199,5 +225,8 @@ public class Utama extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBarUtama;
     private javax.swing.JMenu RegisterMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
