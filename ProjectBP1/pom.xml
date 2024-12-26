@@ -21,23 +21,32 @@
             <version>8.0.33</version> <!-- This version is compatible with JDK 8 and above -->
         </dependency>
         <!-- JasperReports Dependency (Compatible with JDK 8 and above) -->
-        <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports</artifactId>
-            <version>7.0.1</version> <!-- This version is compatible with JDK 8 and above -->
-        </dependency>
+          <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+        <version>6.20.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.lowagie</groupId>
+        <artifactId>itext</artifactId>
+        <version>2.1.7</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.2</version>
+    </dependency>
         <!-- HikariCP (Compatible with JDK 8 and above) -->
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>3.4.5</version> <!-- This version is compatible with JDK 8 and above -->
         </dependency>
-        <!-- JasperReports PDF Dependency (Compatible with JDK 8 and above) -->
-        <dependency>
+        <!-- <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-pdf</artifactId>
-            <version>7.0.1</version> <!-- This version is compatible with JDK 8 and above -->
-        </dependency>
+            <version>7.0.1</version> 
+        </dependency> -->
     </dependencies>
 
     <build>
