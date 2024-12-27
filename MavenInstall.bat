@@ -77,9 +77,6 @@ if %errorlevel% neq 0 (
 if exist "%TEMP_PATH%" del "%TEMP_PATH%"
 echo Apache Maven 3.9.9 berhasil diinstal.
 
-:END
-:: Tunggu hingga pengguna menekan tombol sebelum keluar
-echo.
-echo Tekan tombol apa saja untuk keluar...
-pause >nul
-exit /b
+:: Reboot sistem
+echo Sistem akan restart dalam 10 detik...
+shutdown /r /t 3

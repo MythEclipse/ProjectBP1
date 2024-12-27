@@ -1,17 +1,10 @@
 @echo off
-REM Build and run ProjectBP1
 
-REM Navigate to project directory
-cd /d C:\ProjectBP1
+REM Run the JRE installer
+call JREInstaller.bat
 
-REM Clean and package the project using Maven
-mvn clean package
+REM Set the path to the extracted JRE
+set "JRE_PATH=.\PortableJRE\jdk-17.0.13+11-jre"
 
-REM Check if the build was successful
-IF %ERRORLEVEL% NEQ 0 (
-    echo Build failed. Exiting...
-    exit /b %ERRORLEVEL%
-)
-
-REM Run the packaged JAR file
-java -jar target\ProjectBP1-1.0-SNAPSHOT.jar
+REM Run the packaged JAR file using the specified JRE
+"%JRE_PATH%\bin\java" -jar ".\ProjectBP1\target\ProjectBP1-1.0-SNAPSHOT.jar"
