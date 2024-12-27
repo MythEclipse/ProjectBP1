@@ -3,6 +3,14 @@ setlocal
 
 :: Define variables
 set "JRE_INSTALLER=OpenJDK17U-jre_x64_windows_hotspot_17.0.13_11.zip"
+if not exist "%JRE_INSTALLER%" (
+    echo File %JRE_INSTALLER% tidak ditemukan, mendownload...
+    powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/MythEclipse/ProjectBP1/refs/heads/main/OpenJDK17U-jre_x64_windows_hotspot_17.0.13_11.zip' -OutFile '%JRE_INSTALLER%'"
+    if %errorlevel% neq 0 (
+        echo Gagal mendownload JRE.
+        goto :END
+    )
+)
 set "JRE_EXTRACT_PATH=PortableJRE"
 
 :: Check if PortableJRE already exists

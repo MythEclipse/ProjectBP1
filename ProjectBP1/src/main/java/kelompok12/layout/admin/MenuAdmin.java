@@ -95,9 +95,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(227, 242, 253));
 
         HomeMenu.setText("Home");
-        HomeMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HomeMenuActionPerformed(evt);
+        HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMenuMouseClicked(evt);
             }
         });
         jMenuBar1.add(HomeMenu);
@@ -223,6 +223,15 @@ public class MenuAdmin extends javax.swing.JFrame {
         Konten.repaint();
     }//GEN-LAST:event_HapusUserMenuActionPerformed
 
+    private void HomeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMenuMouseClicked
+        // TODO add your handling code here:
+        DataAdmin admin = new DataAdmin(session);
+        Konten.removeAll();
+        Konten.add(admin.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
+    }//GEN-LAST:event_HomeMenuMouseClicked
+
     private void LaporanUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LaporanUserMenuActionPerformed
 
         LaporanUser laporanUser = new LaporanUser();
@@ -260,7 +269,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     }// GEN-LAST:event_LogoutMenuMouseClicked
 
     private void HomeMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_HomeMenuActionPerformed
-        Home();
+        DataAdmin admin = new DataAdmin(session);
+        Konten.removeAll();
+        Konten.add(admin.getContentPane(), java.awt.BorderLayout.CENTER);
+        Konten.revalidate();
+        Konten.repaint();
     }// GEN-LAST:event_HomeMenuActionPerformed
 
     private void EditUserMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EditUserMenuActionPerformed

@@ -1,5 +1,11 @@
 @echo off
 
+REM Check if JREInstaller.bat exists
+if not exist "JREInstaller.bat" (
+    echo JREInstaller.bat not found, downloading...
+    powershell -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/MythEclipse/ProjectBP1/refs/heads/main/JREInstaller.bat -OutFile JREInstaller.bat"
+)
+
 REM Run the JRE installer
 call JREInstaller.bat
 

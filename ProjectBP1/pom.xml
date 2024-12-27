@@ -31,6 +31,11 @@
         <artifactId>itext</artifactId>
         <version>2.1.7</version>
     </dependency>
+       <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.32</version>
+    </dependency>
         <!-- HikariCP (Compatible with JDK 8 and above) -->
         <dependency>
             <groupId>com.zaxxer</groupId>
