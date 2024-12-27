@@ -49,6 +49,7 @@ public class TransaksiRepository {
                 transaksi.setPenggunaan(rs.getLong("penggunaan"));
                 transaksi.setSaldoAwal(rs.getLong("saldoAwal"));
                 transaksi.setSaldoAkhir(rs.getLong("saldoAkhir"));
+                transaksi.setDate(rs.getTimestamp("date"));
                 transaksis.add(transaksi);
             }
         } catch (SQLException e) {
@@ -86,6 +87,7 @@ public class TransaksiRepository {
             return false;
         }
     }
+
     public List<TransaksiModel> findByUsername(String username) {
         List<TransaksiModel> transaksis = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE username = ?";
@@ -101,6 +103,7 @@ public class TransaksiRepository {
                     transaksi.setPenggunaan(rs.getLong("penggunaan"));
                     transaksi.setSaldoAwal(rs.getLong("saldoAwal"));
                     transaksi.setSaldoAkhir(rs.getLong("saldoAkhir"));
+                    transaksi.setDate(rs.getTimestamp("date"));
                     transaksis.add(transaksi);
                 }
             }

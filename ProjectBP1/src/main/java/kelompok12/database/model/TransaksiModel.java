@@ -1,4 +1,7 @@
 package kelompok12.database.model;
+import java.sql.Timestamp;
+
+
 
 public class TransaksiModel {
     private String id; // varchar(36)
@@ -7,18 +10,20 @@ public class TransaksiModel {
     private long penggunaan; // bigint
     private long saldoAwal; // bigint
     private long saldoAkhir; // bigint
+    private Timestamp date; // timestamp(6)
 
     // Constructor, getters, and setters
     public TransaksiModel() {
     }
 
-    public TransaksiModel(String id, String Username, String type, long penggunaan, long saldoAwal, long saldoAkhir) {
+    public TransaksiModel(String id, String Username, String type, long penggunaan, long saldoAwal, long saldoAkhir, Timestamp date) {
         this.id = id;
         this.Username = Username;
         this.type = type;
         this.penggunaan = penggunaan;
         this.saldoAwal = saldoAwal;
         this.saldoAkhir = saldoAkhir;
+        this.date = date;
     }
 
     public String getId() {
@@ -67,5 +72,13 @@ public class TransaksiModel {
 
     public void setSaldoAkhir(long saldoAkhir) {
         this.saldoAkhir = saldoAkhir;
+    }
+
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 }

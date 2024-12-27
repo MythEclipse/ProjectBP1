@@ -31,12 +31,16 @@ public class LaporanTransaksi {
             jasperDesign.setWhenNoDataType(WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL);
 
             // Add Fields
-            String[] fields = { "id", "username", "type", "penggunaan", "saldoAwal", "saldoAkhir" };
+            String[] fields = { "username", "type", "penggunaan", "saldoAwal", "saldoAkhir", "date" };
             for (String field : fields) {
                 JRDesignField jrField = new JRDesignField();
                 jrField.setName(field);
                 if (field.equals("saldoAwal") || field.equals("saldoAkhir")) {
                     jrField.setValueClass(Integer.class);
+                } else if (field.equals("penggunaan")) {
+                    jrField.setValueClass(Long.class);
+                } else if (field.equals("date")) {
+                    jrField.setValueClass(java.sql.Timestamp.class);
                 } else {
                     jrField.setValueClass(String.class);
                 }
@@ -62,7 +66,7 @@ public class LaporanTransaksi {
             headerBand.setHeight(30);
             int x = 0;
 
-            String[] headers = { "ID", "Username", "Type", "Penggunaan", "Saldo Awal", "Saldo Akhir" };
+            String[] headers = { "Username", "Type", "Penggunaan", "Saldo Awal", "Saldo Akhir", "Date" };
             for (int i = 0; i < headers.length; i++) {
                 JRDesignStaticText headerText = new JRDesignStaticText();
                 headerText.setText(headers[i]);
@@ -134,7 +138,7 @@ public class LaporanTransaksi {
 
     List<Map<String, ?>> fetchData() {
         List<Map<String, ?>> data = new ArrayList<>();
-        String sql = "SELECT id, username, type, penggunaan, SaldoAwal, SaldoAkhir FROM Transaksi";
+        String sql = "SELECT username, type, penggunaan, saldoAwal, saldoAkhir, date FROM Transaksi";
 
         try (Connection con = DatabaseUtil.getConnection();
              Statement st = con.createStatement();
@@ -142,12 +146,12 @@ public class LaporanTransaksi {
 
             while (rs.next()) {
                 Map<String, Object> row = new HashMap<>();
-                row.put("id", rs.getString("id"));
                 row.put("username", rs.getString("username"));
                 row.put("type", rs.getString("type"));
-                row.put("penggunaan", rs.getString("penggunaan"));
-                row.put("saldoAwal", rs.getInt("SaldoAwal"));
-                row.put("saldoAkhir", rs.getInt("SaldoAkhir"));
+                row.put("penggunaan", rs.getLong("penggunaan"));
+                row.put("saldoAwal", rs.getInt("saldoAwal"));
+                row.put("saldoAkhir", rs.getInt("saldoAkhir"));
+                row.put("date", rs.getTimestamp("date"));
                 data.add(row);
             }
         } catch (Exception e) {

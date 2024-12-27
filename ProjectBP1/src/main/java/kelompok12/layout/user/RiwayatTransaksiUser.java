@@ -33,8 +33,8 @@ public class RiwayatTransaksiUser extends javax.swing.JFrame {
         TransaksiRepository transaksiRepo = new TransaksiRepository();
         List<TransaksiModel> transaksiList = transaksiRepo.findByUsername(username);
 
-        String[] columnNames = { "ID", "Username", "Type", "Penggunaan", "Saldo Awal", "Saldo Akhir" };
-        Object[][] data = new Object[transaksiList.size()][6];
+        String[] columnNames = { "ID", "Username", "Type", "Penggunaan", "Saldo Awal", "Saldo Akhir", "Date" };
+        Object[][] data = new Object[transaksiList.size()][7];
 
         for (int i = 0; i < transaksiList.size(); i++) {
             TransaksiModel transaksi = transaksiList.get(i);
@@ -44,6 +44,7 @@ public class RiwayatTransaksiUser extends javax.swing.JFrame {
             data[i][3] = transaksi.getPenggunaan();
             data[i][4] = transaksi.getSaldoAwal();
             data[i][5] = transaksi.getSaldoAkhir();
+            data[i][6] = transaksi.getDate();
         }
 
         TransaksiTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));

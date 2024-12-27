@@ -13,11 +13,10 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.*;
-import kelompok12.database.lib.DatabaseUtil;
+import kelompok12.database.repo.TransaksiRepository;
+import kelompok12.database.model.TransaksiModel;
+
 /**
  *
  * @author asephs
@@ -40,7 +39,7 @@ public class CetakLaporanTransaksi {
             jasperDesign.setWhenNoDataType(WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL);
 
             // Add Fields
-            String[] fields = { "id", "username", "type", "penggunaan", "saldoAwal", "saldoAkhir" };
+            String[] fields = { "username", "type", "penggunaan", "saldoAwal", "saldoAkhir" };
             for (String field : fields) {
                 JRDesignField jrField = new JRDesignField();
                 jrField.setName(field);
@@ -71,13 +70,13 @@ public class CetakLaporanTransaksi {
             headerBand.setHeight(30);
             int x = 0;
 
-            String[] headers = { "ID", "Username", "Type", "Penggunaan", "Saldo Awal", "Saldo Akhir" };
+            String[] headers = { "Username", "Type", "Penggunaan", "Saldo Awal", "Saldo Akhir" };
             for (int i = 0; i < headers.length; i++) {
                 JRDesignStaticText headerText = new JRDesignStaticText();
                 headerText.setText(headers[i]);
                 headerText.setX(x);
                 headerText.setY(0);
-                headerText.setWidth(90);
+                headerText.setWidth(110);
                 headerText.setHeight(30);
                 headerText.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
                 headerText.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
@@ -88,7 +87,7 @@ public class CetakLaporanTransaksi {
                 headerText.getLineBox().getPen().setLineWidth(0.5f);
 
                 headerBand.addElement(headerText);
-                x += 90; // Adjust width for each column
+                x += 110; // Adjust width for each column
             }
             jasperDesign.setColumnHeader(headerBand);
 
@@ -101,7 +100,7 @@ public class CetakLaporanTransaksi {
                 JRDesignTextField textField = new JRDesignTextField();
                 textField.setX(x);
                 textField.setY(0);
-                textField.setWidth(90);
+                textField.setWidth(110);
                 textField.setHeight(20);
                 textField.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
                 textField.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
@@ -111,7 +110,7 @@ public class CetakLaporanTransaksi {
                 textField.getLineBox().getPen().setLineWidth(0.5f);
 
                 detailBand.addElement(textField);
-                x += 90; // Adjust width for each column
+                x += 110; // Adjust width for each column
             }
             ((JRDesignSection) jasperDesign.getDetailSection()).addBand(detailBand);
 
@@ -154,24 +153,17 @@ public class CetakLaporanTransaksi {
 
     List<Map<String, ?>> fetchData() {
         List<Map<String, ?>> data = new ArrayList<>();
-        String sql = "SELECT id, username, type, penggunaan, SaldoAwal, SaldoAkhir FROM Transaksi";
+        TransaksiRepository transaksiRepository = new TransaksiRepository();
+        List<TransaksiModel> transaksiList = transaksiRepository.readAll();
 
-        try (Connection con = DatabaseUtil.getConnection();
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
-
-            while (rs.next()) {
-                Map<String, Object> row = new HashMap<>();
-                row.put("id", rs.getString("id"));
-                row.put("username", rs.getString("username"));
-                row.put("type", rs.getString("type"));
-                row.put("penggunaan", rs.getString("penggunaan"));
-                row.put("saldoAwal", rs.getInt("SaldoAwal"));
-                row.put("saldoAkhir", rs.getInt("SaldoAkhir"));
-                data.add(row);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (TransaksiModel transaksi : transaksiList) {
+            Map<String, Object> row = new HashMap<>();
+            row.put("username", transaksi.getUsername());
+            row.put("type", transaksi.getType());
+            row.put("penggunaan", transaksi.getPenggunaan());
+            row.put("saldoAwal", transaksi.getSaldoAwal());
+            row.put("saldoAkhir", transaksi.getSaldoAkhir());
+            data.add(row);
         }
         return data;
     }
