@@ -32,14 +32,14 @@ if %errorlevel% neq 0 (
 )
 
 :: URL download Maven
-set "MAVEN_URL=https://downloads.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip"
+set "MAVEN_URL=https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip"
 
 :: Nama file installer
-set "MAVEN_INSTALLER=apache-maven-3.8.6-bin.zip"
+set "MAVEN_INSTALLER=apache-maven-3.9.9-bin.zip"
 
 :: Path sementara untuk menyimpan installer
 set "TEMP_PATH=%TEMP%\%MAVEN_INSTALLER%"
-set "MAVEN_DIR=%ProgramFiles%\apache-maven-3.8.6"
+set "MAVEN_DIR=%ProgramFiles%\apache-maven-3.9.9"
 
 :: Periksa apakah Maven sudah terpasang
 mvn -version >nul 2>&1
@@ -75,7 +75,7 @@ if %errorlevel% neq 0 (
 
 :: Hapus file installer setelah selesai
 if exist "%TEMP_PATH%" del "%TEMP_PATH%"
-echo Apache Maven 3.8.6 berhasil diinstal.
+echo Apache Maven 3.9.9 berhasil diinstal.
 
 :END
 :: Tunggu hingga pengguna menekan tombol sebelum keluar
