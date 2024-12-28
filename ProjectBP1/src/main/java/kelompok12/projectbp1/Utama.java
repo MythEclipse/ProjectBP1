@@ -27,7 +27,8 @@ public class Utama extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Konten = new javax.swing.JPanel();
@@ -49,43 +50,42 @@ public class Utama extends javax.swing.JFrame {
 
         jLabel2.setText("Selamat datang di Bank Simple, langkah awal menuju masa depan finansial yang lebih baik!");
 
-        jLabel3.setText(" Kami menyediakan layanan perbankan cerdas yang dirancang untuk memenuhi kebutuhan Anda dengan cepat dan efisien.");
+        jLabel3.setText(
+                " Kami menyediakan layanan perbankan cerdas yang dirancang untuk memenuhi kebutuhan Anda dengan cepat dan efisien.");
 
         jLabel4.setText(" Bank Simple bukan hanya bank, tetapi mitra Anda dalam mencapai tujuan keuangan.");
 
         javax.swing.GroupLayout KontenLayout = new javax.swing.GroupLayout(Konten);
         Konten.setLayout(KontenLayout);
         KontenLayout.setHorizontalGroup(
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(KontenLayout.createSequentialGroup()
-                .addGroup(KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(KontenLayout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(jLabel1))
-                    .addGroup(KontenLayout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel2))
-                    .addGroup(KontenLayout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jLabel3))
-                    .addGroup(KontenLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(jLabel4)))
-                .addContainerGap(136, Short.MAX_VALUE))
-        );
+                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(KontenLayout.createSequentialGroup()
+                                .addGroup(KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(KontenLayout.createSequentialGroup()
+                                                .addGap(318, 318, 318)
+                                                .addComponent(jLabel1))
+                                        .addGroup(KontenLayout.createSequentialGroup()
+                                                .addGap(171, 171, 171)
+                                                .addComponent(jLabel2))
+                                        .addGroup(KontenLayout.createSequentialGroup()
+                                                .addGap(88, 88, 88)
+                                                .addComponent(jLabel3))
+                                        .addGroup(KontenLayout.createSequentialGroup()
+                                                .addGap(183, 183, 183)
+                                                .addComponent(jLabel4)))
+                                .addContainerGap(136, Short.MAX_VALUE)));
         KontenLayout.setVerticalGroup(
-            KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(KontenLayout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(209, Short.MAX_VALUE))
-        );
+                KontenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(KontenLayout.createSequentialGroup()
+                                .addGap(196, 196, 196)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addContainerGap(209, Short.MAX_VALUE)));
 
         MenuBarUtama.setBackground(new java.awt.Color(227, 242, 253));
 
@@ -126,13 +126,13 @@ public class Utama extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Konten, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,12 +151,16 @@ public class Utama extends javax.swing.JFrame {
         Konten.add(About.getContentPane(), java.awt.BorderLayout.CENTER);
         Konten.revalidate();
         Konten.repaint();
-    }// GEN-LAST:event_AboutMenuMouseClicked
+        // GEN-LAST:event_AboutMenuMouseClicked
+    }
 
     private void HomeMenuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_HomeMenuMouseClicked
         // Mengembalikan Konten ke default
         Konten.removeAll();
         Konten.add(jLabel1);
+        Konten.add(jLabel2);
+        Konten.add(jLabel3);
+        Konten.add(jLabel4);
         Konten.revalidate();
         Konten.repaint();
     }// GEN-LAST:event_HomeMenuMouseClicked
